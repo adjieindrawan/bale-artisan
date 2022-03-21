@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Col, Container, Row, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 // images
 import logo from "../assets/images/logo.png";
@@ -26,30 +27,34 @@ function Homepage() {
             </p>
             <Row className="mt-5">
               <Col md={6} className="my-2 parent-cn">
-                <Card
-                  className="card-nav"
-                  style={{
-                    background:
-                      "url(https://whatsnewindonesia.com/jakarta/wp-content/uploads/sites/2/2018/09/3skinnyminnies-catering-1.jpg)",
-                  }}
-                >
-                  <Card.Body>
-                    <h3 className="fw-bold mb-0">Healthy Food</h3>
-                  </Card.Body>
-                </Card>
+                <Link to="/healty-food" className="t-decor-0">
+                  <Card
+                    className="card-nav"
+                    style={{
+                      background:
+                        "url(https://whatsnewindonesia.com/jakarta/wp-content/uploads/sites/2/2018/09/3skinnyminnies-catering-1.jpg)",
+                    }}
+                  >
+                    <Card.Body>
+                      <h3 className="fw-bold mb-0 t-decor-0">Healthy Food</h3>
+                    </Card.Body>
+                  </Card>
+                </Link>
               </Col>
               <Col md={6} className="my-2 parent-cn">
-                <Card
-                  className="card-nav"
-                  style={{
-                    background:
-                      "url(https://whatsnewindonesia.com/jakarta/wp-content/uploads/sites/2/2020/04/Pokinometry-768x768.jpg)",
-                  }}
-                >
-                  <Card.Body>
-                    <h3 className="fw-bold mb-0">Catering</h3>
-                  </Card.Body>
-                </Card>
+                <Link to="/healty-food" className="t-decor-0">
+                  <Card
+                    className="card-nav"
+                    style={{
+                      background:
+                        "url(https://whatsnewindonesia.com/jakarta/wp-content/uploads/sites/2/2020/04/Pokinometry-768x768.jpg)",
+                    }}
+                  >
+                    <Card.Body>
+                      <h3 className="fw-bold mb-0">Catering</h3>
+                    </Card.Body>
+                  </Card>
+                </Link>
               </Col>
             </Row>
 
