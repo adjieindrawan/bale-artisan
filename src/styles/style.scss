@@ -7,6 +7,43 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-h1 {
+h2 {
   font-size: 36px;
+}
+
+small {
+  font-size: 12px;
+}
+
+.btn-yellow {
+  border: 0;
+  border-radius: 100px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+  background-image: linear-gradient(166deg, #f8bc00 24%, #ffab2d 69%);
+  font-size: 14px;
+  line-height: 2;
+  color: $white;
+}
+
+.parent-cn,
+.parent-cn {
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    .card-nav {
+      opacity: 0.8;
+    }
+  }
+
+  & .card-nav {
+    padding: 80px 0;
+    background-position: center !important;
+    background-size: cover !important;
+    border-radius: 16px;
+    border: 0;
+    box-shadow: 0 0 8px 0 rgba(130, 130, 130, 0.15);
+    background-color: #a5f6a3;
+    color: $white;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
 }
