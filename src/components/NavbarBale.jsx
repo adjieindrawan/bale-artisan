@@ -4,7 +4,7 @@ import { Navbar, Container, Nav, Button } from "react-bootstrap";
 function NavbarBale() {
   return (
     <>
-      <Navbar className="nav-green" expand="lg">
+      <Navbar className="nav-green fixed-top" expand="lg">
         <Container>
           <Navbar.Text className="fw-bold text-white">Healty Food</Navbar.Text>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

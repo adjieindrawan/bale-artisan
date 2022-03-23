@@ -4,13 +4,17 @@ import NavbarBale from "../../components/NavbarBale";
 
 // images
 import logoHalf from "../../assets/images/logo-half.png";
+import iconDate from "../../assets/images/icon-date.svg";
+
+// static
 import { _menuHealthy } from "../../static/menu";
+import { _Package } from "../../static/package";
 
 function HealthyFood() {
   return (
     <>
       <NavbarBale />
-      <Container className="text-center">
+      <Container className="text-center py-5">
         <Row>
           <Col lg={{ span: 8, offset: 2 }}>
             <img src={logoHalf} alt="Bale Artisan" className="logo" />
@@ -52,7 +56,35 @@ function HealthyFood() {
                 </Col>
               ))}
             </Row>
-            <h5 className="mt-4">Banyak layanan yang sesuai kebutuhan kamu</h5>
+            <h5 className="mt-5">Banyak layanan yang sesuai kebutuhan kamu</h5>
+            <Row className="mt-3 text-start">
+              {_Package.map((data, i) => (
+                <Col md={4} key={i} className="my-2">
+                  <Card className="h-100">
+                    <Card.Body>
+                      <img src={iconDate} alt="" className="ms--2" />
+                      <h5 className="fw-bold mt-1">{data.title}</h5>
+                      <p className="mt-3">{data.desc}</p>
+                      <ul className="list-package">
+                        {data.point.map((data, i) => (
+                          <li key={i}>{data}</li>
+                        ))}
+                      </ul>
+                    </Card.Body>
+                    <Card.Footer className="clean mb-3">
+                      <div className="d-grid">
+                        <Button className="btn-yellow py-2">
+                          Tanya<b>Bale</b>
+                        </Button>
+                      </div>
+                    </Card.Footer>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+            <h5 className="mt-5">
+              Coba estimasikan pengeluaran Healthy Food kamu
+            </h5>
           </Col>
         </Row>
       </Container>
