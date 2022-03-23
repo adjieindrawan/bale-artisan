@@ -8,7 +8,11 @@ body {
 }
 
 h2 {
-  font-size: 36px;
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
 }
 
 small {
@@ -20,8 +24,6 @@ small {
   border-radius: 100px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
   background-image: linear-gradient(166deg, #f8bc00 24%, #ffab2d 69%);
-  font-size: 14px;
-  line-height: 2;
   color: $white;
 }
 
@@ -63,5 +65,23 @@ small {
     color: $white !important;
     font-weight: 400;
     margin: 0 10px;
+  }
+}
+
+.logo {
+  width: 175px;
+}
+
+.menu-sm {
+  border-radius: 16px;
+  box-shadow: 0 2px 8px 0 rgba(130, 130, 130, 0.15);
+  border: 0;
+  .card-img {
+    border-radius: 16px;
+    padding: 5px;
+  }
+  .menu-title {
+    font-size: 12px;
+    padding: 10px;
   }
 }

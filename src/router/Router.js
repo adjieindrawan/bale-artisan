@@ -1,15 +1,27 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { useLayoutEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Homepage from "../pages";
 import Catering from "../pages/Catering";
-import HealthyFood from "../pages/HealtyFood";
+import HealthyFood from "../pages/HealthyFood";
 
-export default function App() {
+const Wrapper = ({ children }) => {
+  const location = useLocation();
+  useLayoutEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, [location.pathname]);
+  return children;
+};
+
+const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Homepage />} />
-      <Route path="/healty-food" element={<HealthyFood />} />
-      <Route path="/catering" element={<Catering />} />
-    </Routes>
+    <Wrapper>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/healty-food" element={<HealthyFood />} />
+        <Route path="/catering" element={<Catering />} />
+      </Routes>
+    </Wrapper>
   );
-}
+};
+
+export default App;
