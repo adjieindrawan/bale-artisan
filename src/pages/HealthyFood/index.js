@@ -82,12 +82,19 @@ function HealthyFood() {
                 </Col>
               ))}
             </Row>
-            <h5 className="mt-5">
-              Coba estimasikan pengeluaran Healthy Food kamu
-            </h5>
           </Col>
         </Row>
       </Container>
+      <h5 className="mt-5 text-center mb-4">
+        Coba estimasikan pengeluaran Healthy Food kamu
+      </h5>
+      <section className="cal-menu py-5">
+        <Container>
+          <Card>
+            <Card.Body>asds</Card.Body>
+          </Card>
+        </Container>
+      </section>
     </>
   );
 }
