@@ -25,7 +25,7 @@ import { _Benefits, _Package } from "../../static/package";
 function Catering() {
   return (
     <>
-      <NavbarBale bg="nav-yellow" btn="btn-green" />
+      <NavbarBale bg="bg-yellow" btn="btn-green" />
       <Container className="text-center py-5">
         <Row>
           <Col lg={{ span: 8, offset: 2 }}>
@@ -104,7 +104,7 @@ function Catering() {
       <h5 className="fw-bold mt-5 text-center mb-4">
         Coba estimasikan pengeluaran Healthy Food kamu
       </h5>
-      <section className="cal-menu py-5">
+      <section className="bg-yellow py-5">
         <Container>
           <Row>
             <Col md={{ span: 10, offset: 1 }}>

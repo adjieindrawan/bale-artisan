@@ -17,7 +17,7 @@ const App = () => {
     <Wrapper>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/healty-food" element={<HealthyFood />} />
+        <Route path="/healthy-food" element={<HealthyFood />} />
         <Route path="/catering" element={<Catering />} />
       </Routes>
     </Wrapper>

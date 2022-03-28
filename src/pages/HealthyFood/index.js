@@ -25,7 +25,7 @@ import { _Benefits, _Package } from "../../static/package";
 function HealthyFood() {
   return (
     <>
-      <NavbarBale bg="nav-green" />
+      <NavbarBale bg="bg-green" />
       <Container className="text-center py-5">
         <Row>
           <Col lg={{ span: 8, offset: 2 }}>
@@ -104,7 +104,7 @@ function HealthyFood() {
       <h5 className="fw-bold mt-5 text-center mb-4">
         Coba estimasikan pengeluaran Healthy Food kamu
       </h5>
-      <section className="cal-menu py-5">
+      <section className="bg-green py-5">
         <Container>
           <Row>
             <Col md={{ span: 10, offset: 1 }}>
@@ -116,7 +116,7 @@ function HealthyFood() {
                       <h4 className="fw-bold">Paket Langganan</h4>
                       <Row className="my-4">
                         <Col className="align-self-center d-grid">
-                          <Button className="btn-yellow btn-alt-outline active px-5 py-2">
+                          <Button className="btn-yellow-outline active px-5 py-2">
                             Daily
                           </Button>
                         </Col>
@@ -126,7 +126,7 @@ function HealthyFood() {
                       </Row>
                       <Row className="my-4">
                         <Col className="align-self-center d-grid">
-                          <Button className="btn-yellow btn-alt-outline px-5 py-2">
+                          <Button className="btn-yellow-outline px-5 py-2">
                             Weekly
                           </Button>
                         </Col>
@@ -136,7 +136,7 @@ function HealthyFood() {
                       </Row>
                       <Row className="my-4">
                         <Col className="align-self-center d-grid">
-                          <Button className="btn-yellow btn-alt-outline px-5 py-2">
+                          <Button className="btn-yellow-outline px-5 py-2">
                             Monthly
                           </Button>
                         </Col>

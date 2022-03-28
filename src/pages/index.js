@@ -27,7 +27,7 @@ function Homepage() {
             </p>
             <Row className="mt-5">
               <Col md={6} className="my-2 parent-cn">
-                <Link to="/healty-food" className="t-decor-0">
+                <Link to="/healthy-food" className="t-decor-0">
                   <Card
                     className="card-nav"
                     style={{
