@@ -9,6 +9,7 @@ import {
   FormControl,
 } from "react-bootstrap";
 import NavbarBale from "../../components/NavbarBale";
+import FooterBale from "../../components/FooterBale";
 
 // images
 import logoHalf from "../../assets/images/logo-half.png";
@@ -19,12 +20,12 @@ import iconPlus from "../../assets/images/icon-plus.svg";
 
 // static
 import { _menuHealthy } from "../../static/menu";
-import { _Package } from "../../static/package";
+import { _Benefits, _Package } from "../../static/package";
 
 function HealthyFood() {
   return (
     <>
-      <NavbarBale />
+      <NavbarBale bg="nav-green" />
       <Container className="text-center py-5">
         <Row>
           <Col lg={{ span: 8, offset: 2 }}>
@@ -43,10 +44,12 @@ function HealthyFood() {
               Buat kamu yang sedang diet atau suka menu sehat atau yang
               pensaran, Bale Artisan bisa buat menu sehat tapi tetep nikmat!
             </p>
-            <Button className="btn-yellow px-5 py-2 mt-4">
+            <Button className="btn-yellow btn-alt px-5 py-2 mt-4">
               Tanya<b>Bale</b>
             </Button>
-            <h5 className="mt-4">10 menu sehat yang akan dipilih buat kamu</h5>
+            <h5 className="fw-bold mt-4">
+              10 menu sehat yang akan dipilih buat kamu
+            </h5>
             <Row className="justify-content-md-center">
               {_menuHealthy.slice(0, 5).map((data, i) => (
                 <Col md={2} className="my-2" key={i}>
@@ -67,14 +70,16 @@ function HealthyFood() {
                 </Col>
               ))}
             </Row>
-            <h5 className="mt-5">Banyak layanan yang sesuai kebutuhan kamu</h5>
+            <h5 className="fw-bold mt-5">
+              Banyak layanan yang sesuai kebutuhan kamu
+            </h5>
             <Row className="mt-3 text-start">
               {_Package.map((data, i) => (
                 <Col md={4} key={i} className="my-2">
                   <Card className="h-100">
                     <Card.Body>
                       <img src={iconDate} alt="" className="ms--2" />
-                      <h5 className="fw-bold mt-1">{data.title}</h5>
+                      <h5 className="fw-bold fw-bold mt-1">{data.title}</h5>
                       <p className="mt-3">{data.desc}</p>
                       <ul className="list-package">
                         {data.point.map((data, i) => (
@@ -84,7 +89,7 @@ function HealthyFood() {
                     </Card.Body>
                     <Card.Footer className="clean mb-3">
                       <div className="d-grid">
-                        <Button className="btn-yellow py-2">
+                        <Button className="btn-yellow btn-alt py-2">
                           Tanya<b>Bale</b>
                         </Button>
                       </div>
@@ -96,23 +101,22 @@ function HealthyFood() {
           </Col>
         </Row>
       </Container>
-      <h5 className="mt-5 text-center mb-4">
+      <h5 className="fw-bold mt-5 text-center mb-4">
         Coba estimasikan pengeluaran Healthy Food kamu
       </h5>
       <section className="cal-menu py-5">
         <Container>
           <Row>
             <Col md={{ span: 10, offset: 1 }}>
-              <Card className="p-4">
+              <Card className="p-5">
                 <Card.Body>
                   <img src={iconCal} alt="" className="ms--2" />
-
                   <Row>
-                    <Col md={7} className="my-3">
+                    <Col md={8} className="my-3">
                       <h4 className="fw-bold">Paket Langganan</h4>
                       <Row className="my-4">
                         <Col className="align-self-center d-grid">
-                          <Button className="btn-yellow-outline active px-5 py-2">
+                          <Button className="btn-yellow btn-alt-outline active px-5 py-2">
                             Daily
                           </Button>
                         </Col>
@@ -122,7 +126,7 @@ function HealthyFood() {
                       </Row>
                       <Row className="my-4">
                         <Col className="align-self-center d-grid">
-                          <Button className="btn-yellow-outline px-5 py-2">
+                          <Button className="btn-yellow btn-alt-outline px-5 py-2">
                             Weekly
                           </Button>
                         </Col>
@@ -132,7 +136,7 @@ function HealthyFood() {
                       </Row>
                       <Row className="my-4">
                         <Col className="align-self-center d-grid">
-                          <Button className="btn-yellow-outline px-5 py-2">
+                          <Button className="btn-yellow btn-alt-outline px-5 py-2">
                             Monthly
                           </Button>
                         </Col>
@@ -171,8 +175,8 @@ function HealthyFood() {
                     </Col>
                   </Row>
                   <Row className="mt-4">
-                    <Col md={{ span: 4, offset: 8 }} className="d-grid">
-                      <Button className="btn-yellow py-2 fw-bold">
+                    <Col md={{ span: 3, offset: 9 }} className="d-grid">
+                      <Button className="btn-yellow btn-alt py-2 fw-bold">
                         Estimasikan
                       </Button>
                     </Col>
@@ -183,6 +187,37 @@ function HealthyFood() {
           </Row>
         </Container>
       </section>
+      <Container className="py-5">
+        <Row>
+          <Col md={{ span: 8, offset: 2 }}>
+            <h5 className="fw-bold mt-5 text-center mb-4">
+              Ada beberapa keunggulan yang kamu dapat dari Bale Artisan
+            </h5>
+            <Row className="mt-3 text-start">
+              {_Benefits.map((data, i) => (
+                <Col md={4} key={i} className="my-2">
+                  <Card className="h-100">
+                    <Card.Body>
+                      <img src={data.img} alt="" className="ms--2" />
+                      <h5 className="fw-bold fw-bold mt-1">{data.title}</h5>
+                      <p className="mt-3">{data.desc}</p>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+            <div className="text-center">
+              <h5 className="fw-bold mt-5 text-center mb-4">
+                Kamu bisa tanya semuanya pakai TanyaBale!
+              </h5>
+              <Button className="btn-yellow btn-alt px-5 py-2 mt-4">
+                Tanya<b>Bale</b>
+              </Button>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+      <FooterBale />
     </>
   );
 }

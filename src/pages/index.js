@@ -32,7 +32,7 @@ function Homepage() {
                     className="card-nav"
                     style={{
                       background:
-                        "url(https://whatsnewindonesia.com/jakarta/wp-content/uploads/sites/2/2018/09/3skinnyminnies-catering-1.jpg)",
+                        "url(https://cdn.cnn.com/cnnnext/dam/assets/201222102438-healthyleadfactor-meals.jpg)",
                     }}
                   >
                     <Card.Body>
@@ -42,12 +42,12 @@ function Homepage() {
                 </Link>
               </Col>
               <Col md={6} className="my-2 parent-cn">
-                <Link to="/healty-food" className="t-decor-0">
+                <Link to="/catering" className="t-decor-0">
                   <Card
                     className="card-nav"
                     style={{
                       background:
-                        "url(https://whatsnewindonesia.com/jakarta/wp-content/uploads/sites/2/2020/04/Pokinometry-768x768.jpg)",
+                        "url(https://bisnisukm.com/uploads/2016/07/bisnis-katering-makanan-sehat-peminatnya-kian-meningkat-760x488.jpg)",
                     }}
                   >
                     <Card.Body>

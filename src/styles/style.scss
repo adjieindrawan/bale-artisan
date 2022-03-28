@@ -30,12 +30,19 @@ h6 {
   font-size: 12px;
 }
 
-.btn-yellow {
+.btn-alt {
   border: 0;
   border-radius: 100px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
-  background-image: linear-gradient(166deg, #f8bc00 24%, #ffab2d 69%);
   color: $white;
+}
+
+.btn-yellow {
+  background-image: linear-gradient(166deg, #f8bc00 24%, #ffab2d 69%);
+}
+
+.btn-green {
+  background-image: linear-gradient(166deg, #56c596 24%, #2eba7f 69%);
 }
 
 .btn-yellow-outline {
@@ -79,9 +86,9 @@ h6 {
   text-decoration: none !important;
 }
 
-.nav-green {
+.nav {
   box-shadow: 0 2px 8px 0 rgba(85, 85, 85, 0.15);
-  background-image: linear-gradient(114deg, #56c596 46%, #2eba7f 59%);
+
   & .navbar-brand {
     color: $white;
   }
@@ -91,6 +98,14 @@ h6 {
     font-weight: 400;
     margin: 0 10px;
   }
+}
+
+.nav-green {
+  background-image: linear-gradient(114deg, #56c596 46%, #2eba7f 59%);
+}
+
+.nav-yellow {
+  background-image: linear-gradient(114deg, #f8bc00 46%, #ffab2d 59%);
 }
 
 .logo {
@@ -163,4 +178,13 @@ span.txt-form {
   right: 5rem;
   margin-top: 1.1rem;
   font-weight: 500;
+}
+
+footer.bale {
+  padding: 20px 0;
+  text-align: center;
+  border-top: 1px solid #ebebeb;
+  color: #7e7e7e;
+  font-weight: 400;
+  font-size: 12px;
 }
