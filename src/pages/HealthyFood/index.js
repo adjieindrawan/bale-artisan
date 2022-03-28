@@ -1,10 +1,21 @@
 import React from "react";
-import { Col, Container, Row, Button, Card } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  Row,
+  Button,
+  Card,
+  InputGroup,
+  FormControl,
+} from "react-bootstrap";
 import NavbarBale from "../../components/NavbarBale";
 
 // images
 import logoHalf from "../../assets/images/logo-half.png";
 import iconDate from "../../assets/images/icon-date.svg";
+import iconCal from "../../assets/images/icon-cal.svg";
+import iconMin from "../../assets/images/icon-min.svg";
+import iconPlus from "../../assets/images/icon-plus.svg";
 
 // static
 import { _menuHealthy } from "../../static/menu";
@@ -90,9 +101,86 @@ function HealthyFood() {
       </h5>
       <section className="cal-menu py-5">
         <Container>
-          <Card>
-            <Card.Body>asds</Card.Body>
-          </Card>
+          <Row>
+            <Col md={{ span: 10, offset: 1 }}>
+              <Card className="p-4">
+                <Card.Body>
+                  <img src={iconCal} alt="" className="ms--2" />
+
+                  <Row>
+                    <Col md={7} className="my-3">
+                      <h4 className="fw-bold">Paket Langganan</h4>
+                      <Row className="my-4">
+                        <Col className="align-self-center d-grid">
+                          <Button className="btn-yellow-outline active px-5 py-2">
+                            Daily
+                          </Button>
+                        </Col>
+                        <Col className="align-self-center block-text">
+                          Paket Daily silahkan pilih 1 - 3 hari
+                        </Col>
+                      </Row>
+                      <Row className="my-4">
+                        <Col className="align-self-center d-grid">
+                          <Button className="btn-yellow-outline px-5 py-2">
+                            Weekly
+                          </Button>
+                        </Col>
+                        <Col className="align-self-center block-text">
+                          Paket Weekly silahkan pilih 4 - 7 hari
+                        </Col>
+                      </Row>
+                      <Row className="my-4">
+                        <Col className="align-self-center d-grid">
+                          <Button className="btn-yellow-outline px-5 py-2">
+                            Monthly
+                          </Button>
+                        </Col>
+                        <Col className="align-self-center block-text">
+                          Paket Monthly silahkan pilih 16 - 30 hari
+                        </Col>
+                      </Row>
+                    </Col>
+                    <Col md={{ span: 3, offset: 1 }} className="my-3">
+                      <div>
+                        <h4 className="fw-bold">Jumlah Hari</h4>
+                        <InputGroup className="mb-3 ms--2 mt-3">
+                          <img src={iconMin} alt="" className="pointer" />
+                          <FormControl
+                            placeholder="1 - 3"
+                            className="form-cstm m-2"
+                            disabled
+                          />
+                          <span className="txt-form">Hari</span>
+                          <img src={iconPlus} alt="" className="pointer" />
+                        </InputGroup>
+                      </div>
+                      <div className="mt-4">
+                        <h4 className="fw-bold">Jumlah Paket</h4>
+                        <InputGroup className="mb-3 ms--2 mt-3">
+                          <img src={iconMin} alt="" className="pointer" />
+                          <FormControl
+                            placeholder="0"
+                            className="form-cstm m-2"
+                            disabled
+                          />
+                          <span className="txt-form">Paket</span>
+                          <img src={iconPlus} alt="" className="pointer" />
+                        </InputGroup>
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row className="mt-4">
+                    <Col md={{ span: 4, offset: 8 }} className="d-grid">
+                      <Button className="btn-yellow py-2 fw-bold">
+                        Estimasikan
+                      </Button>
+                    </Col>
+                  </Row>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
         </Container>
       </section>
     </>
