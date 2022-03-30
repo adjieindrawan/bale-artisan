@@ -7,6 +7,8 @@ import {
   Card,
   InputGroup,
   FormControl,
+  Nav,
+  Tab,
 } from "react-bootstrap";
 import NavbarBale from "../../components/NavbarBale";
 import FooterBale from "../../components/FooterBale";
@@ -36,9 +38,9 @@ function Catering() {
               className="img-fluid"
             />
             <h2 className="fw-bold mt-4">
-              Bale Artisan ubah makanan sehat
+              Bale Artisan bikin menu makan lebih
               <br />
-              jadi nikmat!
+              menyenangkan!
             </h2>
             <p className="mt-4">
               Buat kamu yang sedang diet atau suka menu sehat atau yang
@@ -47,29 +49,60 @@ function Catering() {
             <Button className="btn-green btn-alt px-5 py-2 mt-4">
               Tanya<b>Bale</b>
             </Button>
-            <h5 className="fw-bold mt-4">
-              10 menu sehat yang akan dipilih buat kamu
+            <h5 className="mt-5 mb-3 fw-light">
+              kamu bisa bebas pilih menu yang kamu suka
             </h5>
-            <Row className="justify-content-md-center">
-              {_menuHealthy.slice(0, 5).map((data, i) => (
-                <Col md={2} className="my-2" key={i}>
-                  <Card className="menu-sm h-100">
-                    <Card.Img src={data.img} />
-                    <Card.Body className="menu-title">{data.title}</Card.Body>
-                  </Card>
+
+            <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+              <Row>
+                <Col md={{ span: 6, offset: 3 }}>
+                  <Nav fill variant="tabs" defaultActiveKey="first">
+                    <Nav.Item>
+                      <Nav.Link eventKey="first" className="text-success">
+                        Standart
+                      </Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="second" className="text-success">
+                        Premium
+                      </Nav.Link>
+                    </Nav.Item>
+                  </Nav>
                 </Col>
-              ))}
-            </Row>
-            <Row className="justify-content-md-center mt-3">
-              {_menuHealthy.slice(5, 10).map((data, i) => (
-                <Col md={2} className="my-2" key={i}>
-                  <Card className="menu-sm h-100">
-                    <Card.Img src={data.img} />
-                    <Card.Body className="menu-title">{data.title}</Card.Body>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
+
+                <Tab.Content className="mt-3">
+                  <Tab.Pane eventKey="first">
+                    <Row className="justify-content-md-center">
+                      {_menuHealthy.slice(0, 5).map((data, i) => (
+                        <Col md={2} className="my-2" key={i}>
+                          <Card className="menu-sm h-100">
+                            <Card.Img src={data.img} />
+                            <Card.Body className="menu-title">
+                              {data.title}
+                            </Card.Body>
+                          </Card>
+                        </Col>
+                      ))}
+                    </Row>
+                  </Tab.Pane>
+                  <Tab.Pane eventKey="second">
+                    <Row className="justify-content-md-center">
+                      {_menuHealthy.slice(5, 10).map((data, i) => (
+                        <Col md={2} className="my-2" key={i}>
+                          <Card className="menu-sm h-100">
+                            <Card.Img src={data.img} />
+                            <Card.Body className="menu-title">
+                              {data.title}
+                            </Card.Body>
+                          </Card>
+                        </Col>
+                      ))}
+                    </Row>
+                  </Tab.Pane>
+                </Tab.Content>
+              </Row>
+            </Tab.Container>
+
             <h5 className="fw-bold mt-5">
               Banyak layanan yang sesuai kebutuhan kamu
             </h5>
@@ -116,7 +149,10 @@ function Catering() {
                       <h4 className="fw-bold">Paket Langganan</h4>
                       <Row className="my-4">
                         <Col className="align-self-center d-grid">
-                          <Button className="btn-green btn-alt-outline active px-5 py-2">
+                          <Button
+                            variant="secondary"
+                            className="btn-green btn-green-outline active px-5 py-2"
+                          >
                             Daily
                           </Button>
                         </Col>
@@ -126,7 +162,10 @@ function Catering() {
                       </Row>
                       <Row className="my-4">
                         <Col className="align-self-center d-grid">
-                          <Button className="btn-green btn-alt-outline px-5 py-2">
+                          <Button
+                            variant="secondary"
+                            className="btn-green btn-green-outline px-5 py-2"
+                          >
                             Weekly
                           </Button>
                         </Col>
@@ -136,7 +175,10 @@ function Catering() {
                       </Row>
                       <Row className="my-4">
                         <Col className="align-self-center d-grid">
-                          <Button className="btn-green btn-alt-outline px-5 py-2">
+                          <Button
+                            variant="secondary"
+                            className="btn-green btn-green-outline px-5 py-2"
+                          >
                             Monthly
                           </Button>
                         </Col>

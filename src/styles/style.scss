@@ -48,13 +48,27 @@ h6 {
 .btn-yellow-outline {
   border: 0;
   border-radius: 100px;
-  color: $yellow;
+  color: $primary;
   border: 1px solid $primary;
   background: none;
   &.active,
   &:focus,
   &:hover {
     background-image: linear-gradient(166deg, #f8bc00 24%, #ffab2d 69%);
+    color: $white;
+  }
+}
+
+.btn-green-outline {
+  border: 0;
+  border-radius: 100px;
+  color: $secondary;
+  border: 1px solid $secondary;
+  background: none;
+  &.active,
+  &:focus,
+  &:hover {
+    background-image: linear-gradient(166deg, #56c596 24%, #2eba7f 69%);
     color: $white;
   }
 }
