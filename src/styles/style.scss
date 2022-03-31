@@ -100,15 +100,13 @@ h6 {
   text-decoration: none !important;
 }
 
-.nav {
-  box-shadow: 0 2px 8px 0 rgba(85, 85, 85, 0.15);
-
+#nav-bale {
   & .navbar-brand {
     color: $white;
   }
   & a.nav-link {
     font-size: 13px;
-    color: $white !important;
+    color: $white;
     font-weight: 400;
     margin: 0 10px;
   }
@@ -197,4 +195,20 @@ footer.bale {
   color: #7e7e7e;
   font-weight: 400;
   font-size: 12px;
+}
+
+.tab-menu.nav.nav-fill {
+  background: none;
+  box-shadow: none;
+  & .nav-item {
+    & a {
+      color: #7e7e7e !important;
+      font-weight: 700;
+      cursor: pointer;
+      &.active {
+        color: $green !important;
+        border-bottom: 2px solid;
+      }
+    }
+  }
 }

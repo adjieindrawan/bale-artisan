@@ -14,13 +14,11 @@ const Wrapper = ({ children }) => {
 
 const App = () => {
   return (
-    <Wrapper>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/healthy-food" element={<HealthyFood />} />
-        <Route path="/catering" element={<Catering />} />
-      </Routes>
-    </Wrapper>
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route path="/healthy-food" element={<HealthyFood />} />
+      <Route path="/catering" element={<Catering />} />
+    </Routes>
   );
 };
 

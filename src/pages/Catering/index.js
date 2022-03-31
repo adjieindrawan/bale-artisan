@@ -56,7 +56,7 @@ function Catering() {
             <Tab.Container id="left-tabs-example" defaultActiveKey="first">
               <Row>
                 <Col md={{ span: 6, offset: 3 }}>
-                  <Nav fill variant="tabs" defaultActiveKey="first">
+                  <Nav className="tab-menu" fill defaultActiveKey="first">
                     <Nav.Item>
                       <Nav.Link eventKey="first" className="text-success">
                         Standart
