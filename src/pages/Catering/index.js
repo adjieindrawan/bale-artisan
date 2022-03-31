@@ -24,6 +24,7 @@ import iconPlus from "../../assets/images/icon-plus.svg";
 import { _menuHealthy } from "../../static/menu";
 import { _Benefits, _Package, _PackageCatering } from "../../static/package";
 import SubCal from "./components/SubCal";
+import CustomCal from "./components/CustomCal";
 
 function Catering() {
   return (
@@ -156,12 +157,12 @@ function Catering() {
               <Nav className="tab-menu" fill defaultActiveKey="first">
                 <Nav.Item>
                   <Nav.Link eventKey="first" className="text-success">
-                    Standart
+                    Berlangganan
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link eventKey="second" className="text-success">
-                    Premium
+                    Custom
                   </Nav.Link>
                 </Nav.Item>
               </Nav>
@@ -177,7 +178,7 @@ function Catering() {
                     <SubCal />
                   </Tab.Pane>
                   <Tab.Pane eventKey="second">
-                    <SubCal />
+                    <CustomCal />
                   </Tab.Pane>
                 </Tab.Content>
               </Col>

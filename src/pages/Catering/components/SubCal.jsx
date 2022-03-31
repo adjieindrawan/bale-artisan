@@ -12,6 +12,7 @@ import {
 import iconCal from "../../../assets/images/icon-cal.svg";
 import iconMin from "../../../assets/images/i-min-g.svg";
 import iconPlus from "../../../assets/images/i-plus-g.svg";
+import ModalCal from "../../../components/ModalCal";
 
 const SubCal = () => {
   return (
@@ -21,7 +22,7 @@ const SubCal = () => {
           <img src={iconCal} alt="" className="ms--2" />
           <Row>
             <Col className="my-3">
-              <h4 className="fw-bold">Jenis Menu</h4>
+              <h5 className="fw-bold">Jenis Menu</h5>
               <div className="my-3">
                 <Button
                   variant="secondary"
@@ -40,7 +41,7 @@ const SubCal = () => {
               </div>
             </Col>
             <Col md={6} className="my-3">
-              <h4 className="fw-bold">Paket Langganan</h4>
+              <h5 className="fw-bold">Paket Langganan</h5>
               <div className="my-3">
                 <Button
                   variant="secondary"
@@ -77,7 +78,7 @@ const SubCal = () => {
             </Col>
             <Col className="my-3">
               <div>
-                <h4 className="fw-bold">Jumlah Hari</h4>
+                <h5 className="fw-bold">Jumlah Hari</h5>
                 <InputGroup className="mb-3 ms--2 mt-3">
                   <img src={iconMin} alt="" className="pointer" />
                   <FormControl
@@ -90,7 +91,7 @@ const SubCal = () => {
                 </InputGroup>
               </div>
               <div className="mt-4">
-                <h4 className="fw-bold">Jumlah Paket</h4>
+                <h5 className="fw-bold">Jumlah Paket</h5>
                 <InputGroup className="mb-3 ms--2 mt-3">
                   <img src={iconMin} alt="" className="pointer" />
                   <FormControl
@@ -106,12 +107,7 @@ const SubCal = () => {
           </Row>
           <Row className="mt-4">
             <Col md={{ span: 3, offset: 9 }} className="d-grid">
-              <Button
-                variant="secondary"
-                className="btn-green btn-alt py-2 fw-bold"
-              >
-                Estimasikan
-              </Button>
+              <ModalCal variant="secondary" />
             </Col>
           </Row>
         </Card.Body>
