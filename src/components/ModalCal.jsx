@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Col, Modal, Row } from "react-bootstrap";
 
 function ModalCal(props) {
   const [show, setShow] = useState(false);
@@ -17,10 +17,48 @@ function ModalCal(props) {
       </Button>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Header className={props.bg + " text-white"} closeButton>
+          <Modal.Title>
+            <h5 className="mb-0 fw-bold">Estimasi Harga</h5>
+          </Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <Row>
+            <Col xs={6} className="my-2">
+              <p className="fw-bold mb-1">Jenis Menu</p>
+              <span>Premium</span>
+            </Col>
+            <Col xs={6} className="my-2">
+              <p className="fw-bold mb-1">Jenis Menu</p>
+              <span>Premium</span>
+            </Col>
+            <Col xs={6} className="my-2">
+              <p className="fw-bold mb-1">Jenis Menu</p>
+              <span>Premium</span>
+            </Col>
+            <Col xs={6} className="my-2">
+              <p className="fw-bold mb-1">Jenis Menu</p>
+              <span>Premium</span>
+            </Col>
+          </Row>
+          <hr />
+          <Row>
+            <Col xs={6} className="my-2 align-self-center">
+              <p className="fw-bold mb-1">Estimasi Harga:</p>
+            </Col>
+            <Col xs={6} className="my-2 align-self-center">
+              <h4 className={props.tc + " fw-bold mb-0"}>Rp200.000,-</h4>
+            </Col>
+            <Col md={{ span: 6, offset: 3 }} className="d-grid mt-4">
+              <Button
+                variant={props.variant}
+                className={props.btn + " btn-alt py-2"}
+              >
+                Tanya<b>Bale</b>
+              </Button>
+            </Col>
+          </Row>
+        </Modal.Body>
       </Modal>
     </>
   );

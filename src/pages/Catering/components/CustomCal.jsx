@@ -127,7 +127,12 @@ const CustomCal = () => {
           </Row>
           <Row className="mt-4">
             <Col md={{ span: 3, offset: 9 }} className="d-grid">
-              <ModalCal variant="secondary" />
+              <ModalCal
+                variant="secondary"
+                bg="bg-yellow"
+                btn="btn-green"
+                tc="text-primary"
+              />
             </Col>
           </Row>
         </Card.Body>

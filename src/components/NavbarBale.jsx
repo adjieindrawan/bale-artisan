@@ -6,7 +6,9 @@ function NavbarBale(props) {
     <>
       <Navbar className={props.bg + " nav fixed-top"} expand="lg">
         <Container>
-          <Navbar.Text className="fw-bold text-white">Healthy Food</Navbar.Text>
+          <Navbar.Text className="fw-bold text-white">
+            {props.title}
+          </Navbar.Text>
           <Navbar.Toggle aria-controls="nav-bale" />
           <Navbar.Collapse id="nav-bale">
             <Nav className="m-auto">

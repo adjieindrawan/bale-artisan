@@ -34,7 +34,10 @@ h6 {
   border: 0;
   border-radius: 100px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
-  color: $white;
+  color: $white !important;
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .btn-yellow {
@@ -215,4 +218,7 @@ footer.bale {
 
 .btn-cal {
   min-width: 180px;
+}
+.modal-content {
+  border: none;
 }

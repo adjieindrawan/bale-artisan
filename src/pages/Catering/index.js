@@ -1,35 +1,21 @@
 import React from "react";
-import {
-  Col,
-  Container,
-  Row,
-  Button,
-  Card,
-  InputGroup,
-  FormControl,
-  Nav,
-  Tab,
-} from "react-bootstrap";
+import { Col, Container, Row, Button, Card, Nav, Tab } from "react-bootstrap";
 import NavbarBale from "../../components/NavbarBale";
 import FooterBale from "../../components/FooterBale";
+import SubCal from "./components/SubCal";
+import CustomCal from "./components/CustomCal";
 
 // images
 import logoHalf from "../../assets/images/logo-half.png";
-import iconDate from "../../assets/images/icon-date.svg";
-import iconCal from "../../assets/images/icon-cal.svg";
-import iconMin from "../../assets/images/icon-min.svg";
-import iconPlus from "../../assets/images/icon-plus.svg";
 
 // static
 import { _menuHealthy } from "../../static/menu";
-import { _Benefits, _Package, _PackageCatering } from "../../static/package";
-import SubCal from "./components/SubCal";
-import CustomCal from "./components/CustomCal";
+import { _BenefitsY, _PackageCatering } from "../../static/package";
 
 function Catering() {
   return (
     <>
-      <NavbarBale bg="bg-yellow" btn="btn-green" />
+      <NavbarBale bg="bg-yellow" btn="btn-green" title="Catering" />
       <Container className="text-center py-5">
         <Row>
           <Col lg={{ span: 8, offset: 2 }}>
@@ -193,7 +179,7 @@ function Catering() {
               Ada beberapa keunggulan yang kamu dapat dari Bale Artisan
             </h5>
             <Row className="mt-3 text-start">
-              {_Benefits.map((data, i) => (
+              {_BenefitsY.map((data, i) => (
                 <Col md={4} key={i} className="my-2">
                   <Card className="h-100">
                     <Card.Body>

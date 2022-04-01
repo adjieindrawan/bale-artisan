@@ -21,11 +21,12 @@ import iconPlus from "../../assets/images/icon-plus.svg";
 // static
 import { _menuHealthy } from "../../static/menu";
 import { _Benefits, _Package } from "../../static/package";
+import ModalCal from "../../components/ModalCal";
 
 function HealthyFood() {
   return (
     <>
-      <NavbarBale bg="bg-green" />
+      <NavbarBale bg="bg-green" title="Healthy Food" />
       <Container className="text-center py-5">
         <Row>
           <Col lg={{ span: 8, offset: 2 }}>
@@ -176,9 +177,12 @@ function HealthyFood() {
                   </Row>
                   <Row className="mt-4">
                     <Col md={{ span: 3, offset: 9 }} className="d-grid">
-                      <Button className="btn-yellow btn-alt py-2 fw-bold">
-                        Estimasikan
-                      </Button>
+                      <ModalCal
+                        variant="secondary"
+                        bg="bg-green"
+                        btn="btn-yellow"
+                        tc="text-secondary"
+                      />
                     </Col>
                   </Row>
                 </Card.Body>

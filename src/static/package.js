@@ -5,6 +5,10 @@ import bf3 from "../assets/images/bf-3.svg";
 import iyDate from "../assets/images/iy-date.svg";
 import iyParty from "../assets/images/iy-party.svg";
 
+import benefitY1 from "../assets/images/bf-y1.svg";
+import benefitY2 from "../assets/images/bf-y2.svg";
+import benefitY3 from "../assets/images/bf-y3.svg";
+
 export const _Package = [
   {
     title: "Paket Daily",
@@ -65,5 +69,23 @@ export const _Benefits = [
     title: "TanyaBale",
     desc: "Kamu sangat bisa tanya sepuasnya dan kapan aja tentang layanan Bale Artisan di Whatsapp Chat kita.",
     img: bf3,
+  },
+];
+
+export const _BenefitsY = [
+  {
+    title: "Pengiriman Cepat",
+    desc: "Kita bakal kirim makanan kamu tepat waktu ke lokasi kamu yang termasuk dalam jangkauan layanan kita",
+    img: benefitY1,
+  },
+  {
+    title: "Bahan Berkualitas",
+    desc: "Bahan makanan yang kita pilih pastinya segar dan sehat, karena menu kita enaknya ga bikin nyesel.",
+    img: benefitY2,
+  },
+  {
+    title: "TanyaBale",
+    desc: "Kamu sangat bisa tanya sepuasnya dan kapan aja tentang layanan Bale Artisan di Whatsapp Chat kita.",
+    img: benefitY3,
   },
 ];
