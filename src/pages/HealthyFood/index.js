@@ -22,6 +22,7 @@ import iconPlus from "../../assets/images/icon-plus.svg";
 import { _menuHealthy } from "../../static/menu";
 import { _Benefits, _Package } from "../../static/package";
 import ModalCal from "../../components/ModalCal";
+import ModalMenu from "../../components/ModalMenu";
 
 function HealthyFood() {
   return (
@@ -54,20 +55,22 @@ function HealthyFood() {
             <Row className="justify-content-md-center">
               {_menuHealthy.slice(0, 5).map((data, i) => (
                 <Col md={2} className="my-2" key={i}>
-                  <Card className="menu-sm h-100">
-                    <Card.Img src={data.img} />
-                    <Card.Body className="menu-title">{data.title}</Card.Body>
-                  </Card>
+                  <ModalMenu
+                    data={{ ...data }}
+                    variant="secondary"
+                    btn="btn-green"
+                  />
                 </Col>
               ))}
             </Row>
             <Row className="justify-content-md-center mt-3">
               {_menuHealthy.slice(5, 10).map((data, i) => (
                 <Col md={2} className="my-2" key={i}>
-                  <Card className="menu-sm h-100">
-                    <Card.Img src={data.img} />
-                    <Card.Body className="menu-title">{data.title}</Card.Body>
-                  </Card>
+                  <ModalMenu
+                    data={{ ...data }}
+                    variant="secondary"
+                    btn="btn-green"
+                  />
                 </Col>
               ))}
             </Row>

@@ -11,6 +11,7 @@ import logoHalf from "../../assets/images/logo-half.png";
 // static
 import { _menuHealthy } from "../../static/menu";
 import { _BenefitsY, _PackageCatering } from "../../static/package";
+import ModalMenu from "../../components/ModalMenu";
 
 function Catering() {
   return (
@@ -66,12 +67,11 @@ function Catering() {
                     <Row className="justify-content-md-center">
                       {_menuHealthy.slice(0, 5).map((data, i) => (
                         <Col md={2} className="my-2" key={i}>
-                          <Card className="menu-sm h-100">
-                            <Card.Img src={data.img} />
-                            <Card.Body className="menu-title">
-                              {data.title}
-                            </Card.Body>
-                          </Card>
+                          <ModalMenu
+                            data={{ ...data }}
+                            variant="secondary"
+                            btn="btn-green"
+                          />
                         </Col>
                       ))}
                     </Row>
@@ -80,12 +80,11 @@ function Catering() {
                     <Row className="justify-content-md-center">
                       {_menuHealthy.slice(5, 10).map((data, i) => (
                         <Col md={2} className="my-2" key={i}>
-                          <Card className="menu-sm h-100">
-                            <Card.Img src={data.img} />
-                            <Card.Body className="menu-title">
-                              {data.title}
-                            </Card.Body>
-                          </Card>
+                          <ModalMenu
+                            data={{ ...data }}
+                            variant="secondary"
+                            btn="btn-green"
+                          />
                         </Col>
                       ))}
                     </Row>
