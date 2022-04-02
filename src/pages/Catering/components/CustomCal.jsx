@@ -40,7 +40,7 @@ const CustomCal = () => {
 
   const isChecked = (key) => {
     const checked = selected.find((item) => item.key === key);
-    return checked;
+    return checked ? true : false;
   };
 
   const onChangeAmount = (value) => {

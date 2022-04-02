@@ -1,5 +1,5 @@
 /* eslint-disable array-callback-return */
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   Row,
@@ -15,17 +15,39 @@ import iconMin from "../../../assets/images/i-min-g.svg";
 import iconPlus from "../../../assets/images/i-plus-g.svg";
 import ModalCal from "../../../components/ModalCal";
 
-const SubCal = ({
-  packageList,
-  selected,
-  setSelected,
-  dayAmount,
-  setDayAmount,
-  packageAmount,
-  onChangeDayAmount,
-  onChangePackageAmount,
-  onChangeType
-}) => {
+// data
+import packageList from "../data/subscription.package.data.json";
+
+import util from "../../../helper/util";
+
+const SubCal = () => {
+  const [dayAmount, setDayAmount] = useState(1);
+  const [packageAmount, setPackageAmount] = useState(1);
+  const [selected, setSelected] = useState(
+    packageList.find((data) => data.name === "Daily")
+  );
+
+  const onChangeDayAmount = (value) => {
+    let amount = util.number(value);
+    if (value < selected.minDay) amount = selected.minDay;
+    if (value > selected.maxDay) amount = selected.maxDay;
+    setDayAmount(amount);
+  };
+
+  const onChangePackageAmount = (value) => {
+    const amount = util.number(value);
+    if (amount >= 1) setPackageAmount(amount);
+  };
+
+  const onChangeType = (type, name) => {
+    const data = packageList.find(
+      (item) => item.type === type && item.name === name
+    );
+    if (data) {
+      setSelected(data);
+      setDayAmount(data.minDay);
+    }
+  };
   return (
     <>
       <Card className="p-5">
@@ -57,10 +79,10 @@ const SubCal = ({
             </Col>
             <Col md={6} className="my-3">
               <h5 className="fw-bold">Paket Langganan</h5>
-              {packageList.map((data, index) => {
-                if (selected.type === data.type) {
-                  return (
-                    <div className="my-3">
+              {packageList.map(
+                (data, index) =>
+                  selected.type === data.type && (
+                    <div className="my-3" key={index}>
                       <Button
                         variant="secondary"
                         className="btn-green-outline btn-cal"
@@ -71,15 +93,14 @@ const SubCal = ({
                         }}
                       >
                         {data.name}
-                      </Button>{" "}
+                      </Button>
                       <span className="ms-3 block-text">
                         Paket {data.name} silahkan pilih {data.minDay} -{" "}
-                        {data.maxDay} hari{" "}
+                        {data.maxDay} hari
                       </span>
                     </div>
-                  );
-                }
-              })}
+                  )
+              )}
             </Col>
             <Col className="my-3">
               <div>
