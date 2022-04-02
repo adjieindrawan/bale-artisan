@@ -1,0 +1,134 @@
+[
+  {
+    "type": "Standart",
+    "name": "Daging",
+    "category": "Lauk Utama",
+    "price": 15000
+  },
+  {
+    "type": "Standart",
+    "name": "Ayam",
+    "category": "Lauk Utama",
+    "price": 12000
+  },
+  {
+    "type": "Standart",
+    "name": "Seafood",
+    "category": "Lauk Utama",
+    "price": 14000
+  },
+  {
+    "type": "Standart",
+    "name": "Lainnya",
+    "category": "Lauk Utama",
+    "price": 18000
+  },
+  {
+    "type": "Standart",
+    "name": "2 Lauk",
+    "category": "Lauk Pendamping",
+    "price": 8000
+  },
+  {
+    "type": "Standart",
+    "name": "3 Lauk",
+    "category": "Lauk Pendamping",
+    "price": 10000
+  },
+  {
+    "type": "Standart",
+    "name": "4 Lauk",
+    "category": "Lauk Pendamping",
+    "price": 12000
+  },
+  {
+    "type": "Standart",
+    "name": "Minuman",
+    "category": "Tambahan",
+    "price": 5000
+  },
+  {
+    "type": "Standart",
+    "name": "Kerupuk",
+    "category": "Tambahan",
+    "price": 1000
+  },
+  {
+    "type": "Standart",
+    "name": "Buah",
+    "category": "Tambahan",
+    "price": 5000
+  },
+  {
+    "type": "Standart",
+    "name": "Snack",
+    "category": "Tambahan",
+    "price": 6000
+  },
+  {
+    "type": "Premium",
+    "name": "Daging",
+    "category": "Lauk Utama",
+    "price": 21000
+  },
+  {
+    "type": "Premium",
+    "name": "Ayam",
+    "category": "Lauk Utama",
+    "price": 17000
+  },
+  {
+    "type": "Premium",
+    "name": "Seafood",
+    "category": "Lauk Utama",
+    "price": 19500
+  },
+  {
+    "type": "Premium",
+    "name": "Lainnya",
+    "category": "Lauk Utama",
+    "price": 24000
+  },
+  {
+    "type": "Premium",
+    "name": "2 Lauk",
+    "category": "Lauk Pendamping",
+    "price": 12000
+  },
+  {
+    "type": "Premium",
+    "name": "3 Lauk",
+    "category": "Lauk Pendamping",
+    "price": 15000
+  },
+  {
+    "type": "Premium",
+    "name": "4 Lauk",
+    "category": "Lauk Pendamping",
+    "price": 18000
+  },
+  {
+    "type": "Premium",
+    "name": "Minuman",
+    "category": "Tambahan",
+    "price": 8000
+  },
+  {
+    "type": "Premium",
+    "name": "Kerupuk",
+    "category": "Tambahan",
+    "price": 1500
+  },
+  {
+    "type": "Premium",
+    "name": "Buah",
+    "category": "Tambahan",
+    "price": 8000
+  },
+  {
+    "type": "Premium",
+    "name": "Snack",
+    "category": "Tambahan",
+    "price": 9000
+  }
+]

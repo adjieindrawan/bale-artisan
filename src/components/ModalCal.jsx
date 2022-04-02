@@ -13,6 +13,7 @@ function ModalCal(props) {
         variant={props.variant}
         className="btn-green btn-alt py-2 fw-bold"
         onClick={handleShow}
+        disabled={props.disabled}
       >
         Estimasikan
       </Button>

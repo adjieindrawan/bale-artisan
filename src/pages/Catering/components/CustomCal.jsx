@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   Row,
@@ -6,7 +6,7 @@ import {
   Button,
   InputGroup,
   FormControl,
-  Form,
+  Form
 } from "react-bootstrap";
 
 // img
@@ -15,7 +15,39 @@ import iconMin from "../../../assets/images/i-min-g.svg";
 import iconPlus from "../../../assets/images/i-plus-g.svg";
 import ModalCal from "../../../components/ModalCal";
 
+// data
+import customPackageList from "../data/custom.package.data.json";
+import util from "../../../helper/util";
+
 const CustomCal = () => {
+  const [type, setType] = useState("Standart");
+  const [amount, setAmount] = useState(1);
+  const [selected, setSelected] = useState([]);
+  const packageList = customPackageList.map((item, index) => ({
+    ...item,
+    key: index
+  }));
+
+  const onChangeSelected = (data) => {
+    const checkSelected = selected.find((item) => item.key === data.key);
+    if (checkSelected) {
+      const newSelected = selected.filter((item) => item.key !== data.key);
+      setSelected([...newSelected]);
+    } else {
+      setSelected([...selected, data]);
+    }
+  };
+
+  const isChecked = (key) => {
+    const checked = selected.find((item) => item.key === key);
+    return checked;
+  };
+
+  const onChangeAmount = (value) => {
+    const amount = util.number(value);
+    if (amount >= 1) setAmount(amount);
+  };
+
   return (
     <>
       <Card className="p-5">
@@ -27,36 +59,45 @@ const CustomCal = () => {
               <div className="my-3">
                 <Button
                   variant="secondary"
-                  className="btn-green-outline active"
+                  className="btn-green-outline"
+                  active={type === "Standart"}
+                  onClick={() => {
+                    setType("Standart");
+                    setSelected([]);
+                  }}
                 >
                   Standart
                 </Button>
-                <Button variant="secondary" className="btn-green-outline ms-2">
+                <Button
+                  variant="secondary"
+                  className="btn-green-outline ms-2"
+                  active={type === "Premium"}
+                  onClick={() => {
+                    setType("Premium");
+                    setSelected([]);
+                  }}
+                >
                   Premium
                 </Button>
               </div>
               <h5 className="fw-bold mt-4">Lauk Utama</h5>
               <Row className="my-3">
-                <Col xs={6}>
-                  <Form.Group className="mb-3" controlId="main1">
-                    <Form.Check type="checkbox" label="Daging" />
-                  </Form.Group>
-                </Col>
-                <Col xs={6}>
-                  <Form.Group className="mb-3" controlId="main2">
-                    <Form.Check type="checkbox" label="Seafood" />
-                  </Form.Group>
-                </Col>
-                <Col xs={6}>
-                  <Form.Group className="mb-3" controlId="main3">
-                    <Form.Check type="checkbox" label="Ayam" />
-                  </Form.Group>
-                </Col>
-                <Col xs={6}>
-                  <Form.Group className="mb-3" controlId="4">
-                    <Form.Check type="checkbox" label="Lainnya" />
-                  </Form.Group>
-                </Col>
+                {packageList.map(
+                  (item, index) =>
+                    item.type === type &&
+                    item.category === "Lauk Utama" && (
+                      <Col xs={6} key={index}>
+                        <Form.Group className="mb-3">
+                          <Form.Check
+                            type="checkbox"
+                            label={item.name}
+                            checked={isChecked(item.key)}
+                            onChange={(e) => onChangeSelected(item)}
+                          />
+                        </Form.Group>
+                      </Col>
+                    )
+                )}
                 <Col xs={12} className="block-text">
                   Sudah termasuk nasi
                 </Col>
@@ -65,45 +106,41 @@ const CustomCal = () => {
             <Col md={4} className="my-3">
               <h5 className="fw-bold">Lauk Pendamping</h5>
               <Row className="my-3">
-                <Col xs={6}>
-                  <Form.Group className="mb-3" controlId="second1">
-                    <Form.Check type="checkbox" label="2 Jenis" />
-                  </Form.Group>
-                </Col>
-                <Col xs={6}>
-                  <Form.Group className="mb-3" controlId="second2">
-                    <Form.Check type="checkbox" label="3 Jenis" />
-                  </Form.Group>
-                </Col>
-                <Col xs={6}>
-                  <Form.Group className="mb-3" controlId="second3">
-                    <Form.Check type="checkbox" label="4 Jenis" />
-                  </Form.Group>
-                </Col>
+                {packageList.map(
+                  (item, index) =>
+                    item.type === type &&
+                    item.category === "Lauk Pendamping" && (
+                      <Col xs={6} key={index}>
+                        <Form.Group className="mb-3">
+                          <Form.Check
+                            type="checkbox"
+                            label={item.name}
+                            checked={isChecked(item.key)}
+                            onChange={(e) => onChangeSelected(item)}
+                          />
+                        </Form.Group>
+                      </Col>
+                    )
+                )}
               </Row>
-
               <h5 className="fw-bold mt-4">Tambahan</h5>
               <Row className="my-3">
-                <Col xs={6}>
-                  <Form.Group className="mb-3" controlId="addtional1">
-                    <Form.Check type="checkbox" label="Minuman" />
-                  </Form.Group>
-                </Col>
-                <Col xs={6}>
-                  <Form.Group className="mb-3" controlId="addtional2">
-                    <Form.Check type="checkbox" label="Buah" />
-                  </Form.Group>
-                </Col>
-                <Col xs={6}>
-                  <Form.Group className="mb-3" controlId="addtional3">
-                    <Form.Check type="checkbox" label="Kerupuk" />
-                  </Form.Group>
-                </Col>
-                <Col xs={6}>
-                  <Form.Group className="mb-3" controlId="addtional4">
-                    <Form.Check type="checkbox" label="Snack" />
-                  </Form.Group>
-                </Col>
+                {packageList.map(
+                  (item, index) =>
+                    item.type === type &&
+                    item.category === "Tambahan" && (
+                      <Col xs={6} key={index}>
+                        <Form.Group className="mb-3">
+                          <Form.Check
+                            type="checkbox"
+                            label={item.name}
+                            checked={isChecked(item.key)}
+                            onChange={(e) => onChangeSelected(item)}
+                          />
+                        </Form.Group>
+                      </Col>
+                    )
+                )}
                 <Col xs={12} className="block-text">
                   Sudah termasuk nasi
                 </Col>
@@ -113,14 +150,25 @@ const CustomCal = () => {
               <div>
                 <h5 className="fw-bold">Jumlah Pesanan</h5>
                 <InputGroup className="mb-3 ms--2 mt-3">
-                  <img src={iconMin} alt="" className="pointer" />
+                  <img
+                    src={iconMin}
+                    alt=""
+                    className="pointer"
+                    onClick={() => onChangeAmount(amount - 1)}
+                  />
                   <FormControl
                     placeholder="20 - 100"
                     className="form-cstm m-2"
-                    disabled
+                    min={1}
+                    value={amount}
+                    onChange={(e) => onChangeAmount(e.target.value)}
                   />
-                  <span className="txt-form">Hari</span>
-                  <img src={iconPlus} alt="" className="pointer" />
+                  <img
+                    src={iconPlus}
+                    alt=""
+                    className="pointer"
+                    onClick={() => onChangeAmount(amount + 1)}
+                  />
                 </InputGroup>
               </div>
             </Col>
@@ -132,6 +180,10 @@ const CustomCal = () => {
                 bg="bg-yellow"
                 btn="btn-green"
                 tc="text-primary"
+                disabled={selected.length === 0}
+                totalPrice={parseFloat(
+                  selected.reduce((a, b) => a + b.price, 0) * amount
+                )}
               />
             </Col>
           </Row>
