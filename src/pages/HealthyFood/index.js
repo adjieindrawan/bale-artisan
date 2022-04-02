@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Col,
   Container,
@@ -6,7 +6,7 @@ import {
   Button,
   Card,
   InputGroup,
-  FormControl,
+  FormControl
 } from "react-bootstrap";
 import NavbarBale from "../../components/NavbarBale";
 import FooterBale from "../../components/FooterBale";
@@ -24,7 +24,30 @@ import { _Benefits, _Package } from "../../static/package";
 import ModalCal from "../../components/ModalCal";
 import ModalMenu from "../../components/ModalMenu";
 
+//data
+import packageList from "./data/package.data.json";
+
+import util from "../../helper/util";
+
 function HealthyFood() {
+  const [dayAmount, setDayAmount] = useState(1);
+  const [packageAmount, setPackageAmount] = useState(1);
+  const [selected, setSelected] = useState(
+    packageList.find((data) => data.name === "Daily")
+  );
+
+  const onChangeDayAmount = (value) => {
+    let amount = util.number(value);
+    if (value < selected.minDay) amount = selected.minDay;
+    if (value > selected.maxDay) amount = selected.maxDay;
+    setDayAmount(amount);
+  };
+
+  const onChangePackageAmount = (value) => {
+    const amount = util.number(value);
+    if (amount >= 1) setPackageAmount(amount);
+  };
+
   return (
     <>
       <NavbarBale bg="bg-green" title="Healthy Food" />
@@ -118,62 +141,83 @@ function HealthyFood() {
                   <Row>
                     <Col md={8} className="my-3">
                       <h4 className="fw-bold">Paket Langganan</h4>
-                      <Row className="my-4">
-                        <Col className="align-self-center d-grid">
-                          <Button className="btn-yellow-outline active px-5 py-2">
-                            Daily
-                          </Button>
-                        </Col>
-                        <Col className="align-self-center block-text">
-                          Paket Daily silahkan pilih 1 - 3 hari
-                        </Col>
-                      </Row>
-                      <Row className="my-4">
-                        <Col className="align-self-center d-grid">
-                          <Button className="btn-yellow-outline px-5 py-2">
-                            Weekly
-                          </Button>
-                        </Col>
-                        <Col className="align-self-center block-text">
-                          Paket Weekly silahkan pilih 4 - 7 hari
-                        </Col>
-                      </Row>
-                      <Row className="my-4">
-                        <Col className="align-self-center d-grid">
-                          <Button className="btn-yellow-outline px-5 py-2">
-                            Monthly
-                          </Button>
-                        </Col>
-                        <Col className="align-self-center block-text">
-                          Paket Monthly silahkan pilih 16 - 30 hari
-                        </Col>
-                      </Row>
+                      {packageList.map((data, index) => (
+                        <Row className="my-4" key={index}>
+                          <Col className="align-self-center d-grid">
+                            <Button
+                              className="btn-yellow-outline px-5 py-2"
+                              active={selected.name === data.name}
+                              onClick={() => {
+                                setSelected(data);
+                                setDayAmount(data.minDay);
+                              }}
+                            >
+                              {data.name}
+                            </Button>
+                          </Col>
+                          <Col className="align-self-center block-text">
+                            Paket {data.name} silahkan pilih {data.minDay} -{" "}
+                            {data.maxDay} hari
+                          </Col>
+                        </Row>
+                      ))}
                     </Col>
                     <Col md={{ span: 3, offset: 1 }} className="my-3">
                       <div>
                         <h4 className="fw-bold">Jumlah Hari</h4>
                         <InputGroup className="mb-3 ms--2 mt-3">
-                          <img src={iconMin} alt="" className="pointer" />
+                          <img
+                            src={iconMin}
+                            alt=""
+                            className="pointer"
+                            onClick={() => onChangeDayAmount(dayAmount - 1)}
+                          />
                           <FormControl
-                            placeholder="1 - 3"
+                            placeholder={`${selected.minDay} - ${selected.maxDay}`}
                             className="form-cstm m-2"
-                            disabled
+                            min={selected.minDay}
+                            max={selected.maxDay}
+                            value={dayAmount}
+                            onChange={(e) => onChangeDayAmount(e.target.value)}
                           />
                           <span className="txt-form">Hari</span>
-                          <img src={iconPlus} alt="" className="pointer" />
+                          <img
+                            src={iconPlus}
+                            alt=""
+                            className="pointer"
+                            onClick={() => onChangeDayAmount(dayAmount + 1)}
+                          />
                         </InputGroup>
                       </div>
                       <div className="mt-4">
                         <h4 className="fw-bold">Jumlah Paket</h4>
                         <InputGroup className="mb-3 ms--2 mt-3">
-                          <img src={iconMin} alt="" className="pointer" />
+                          <img
+                            src={iconMin}
+                            alt=""
+                            className="pointer"
+                            onClick={() =>
+                              onChangePackageAmount(packageAmount - 1)
+                            }
+                          />
                           <FormControl
                             placeholder="0"
                             className="form-cstm m-2"
-                            disabled
+                            min={1}
+                            value={packageAmount}
+                            onChange={(e) =>
+                              onChangePackageAmount(e.target.value)
+                            }
                           />
                           <span className="txt-form">Paket</span>
-                          <img src={iconPlus} alt="" className="pointer" />
+                          <img
+                            src={iconPlus}
+                            alt=""
+                            className="pointer"
+                            onClick={() =>
+                              onChangePackageAmount(packageAmount + 1)
+                            }
+                          />
                         </InputGroup>
                       </div>
                     </Col>
@@ -185,6 +229,9 @@ function HealthyFood() {
                         bg="bg-green"
                         btn="btn-yellow"
                         tc="text-secondary"
+                        totalPrice={parseFloat(
+                          selected.price * dayAmount * packageAmount
+                        )}
                       />
                     </Col>
                   </Row>

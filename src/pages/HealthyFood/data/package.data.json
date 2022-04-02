@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Daily",
+    "minDay": 1,
+    "maxDay": 3,
+    "price": 43000
+  },
+  {
+    "name": "Weekly",
+    "minDay": 4,
+    "maxDay": 7,
+    "price": 40000
+  },
+  {
+    "name": "Monthly",
+    "minDay": 16,
+    "maxDay": 31,
+    "price": 38000
+  }
+]

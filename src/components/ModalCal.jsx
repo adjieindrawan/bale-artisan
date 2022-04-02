@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import util from "../helper/util";
 import { Button, Col, Modal, Row } from "react-bootstrap";
 
 function ModalCal(props) {
@@ -12,6 +13,7 @@ function ModalCal(props) {
         variant={props.variant}
         className="btn-green btn-alt py-2 fw-bold"
         onClick={handleShow}
+        disabled={props.disabled}
       >
         Estimasikan
       </Button>
@@ -47,7 +49,9 @@ function ModalCal(props) {
               <p className="fw-bold mb-1">Estimasi Harga:</p>
             </Col>
             <Col xs={6} className="my-2 align-self-center">
-              <h4 className={props.tc + " fw-bold mb-0"}>Rp200.000,-</h4>
+              <h4 className={props.tc + " fw-bold mb-0"}>
+                {util.thousandSeparator(props.totalPrice)}
+              </h4>
             </Col>
             <Col md={{ span: 6, offset: 3 }} className="d-grid mt-4">
               <Button
