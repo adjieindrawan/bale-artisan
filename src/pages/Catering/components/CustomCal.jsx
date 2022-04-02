@@ -20,6 +20,8 @@ import customPackageList from "../data/custom.package.data.json";
 import util from "../../../helper/util";
 
 const CustomCal = () => {
+  const minimumStandartPrice = 27000;
+  const minimumPremiumPrice = 40000;
   const [type, setType] = useState("Standart");
   const [amount, setAmount] = useState(1);
   const [selected, setSelected] = useState([]);
@@ -46,6 +48,19 @@ const CustomCal = () => {
   const onChangeAmount = (value) => {
     const amount = util.number(value);
     if (amount >= 1) setAmount(amount);
+  };
+
+  const getTotalPrice = () => {
+    let totalPrice = parseFloat(
+      selected.reduce((a, b) => a + b.price, 0) * amount
+    );
+    if (type === "Standart" && totalPrice <= minimumStandartPrice) {
+      totalPrice = minimumStandartPrice;
+    }
+    if (type === "Premium" && totalPrice <= minimumPremiumPrice) {
+      totalPrice = minimumPremiumPrice;
+    }
+    return totalPrice;
   };
 
   return (
@@ -181,9 +196,7 @@ const CustomCal = () => {
                 btn="btn-green"
                 tc="text-primary"
                 disabled={selected.length === 0}
-                totalPrice={parseFloat(
-                  selected.reduce((a, b) => a + b.price, 0) * amount
-                )}
+                totalPrice={getTotalPrice()}
               />
             </Col>
           </Row>
