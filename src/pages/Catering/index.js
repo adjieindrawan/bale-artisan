@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Row, Button, Card, Nav, Tab } from "react-bootstrap";
 import NavbarBale from "../../components/NavbarBale";
 import FooterBale from "../../components/FooterBale";
@@ -13,7 +13,40 @@ import { _menuHealthy } from "../../static/menu";
 import { _BenefitsY, _PackageCatering } from "../../static/package";
 import ModalMenu from "../../components/ModalMenu";
 
+//data
+import packageList from "./data/subscription.package.data.json";
+
+import util from "../../helper/util";
+
 function Catering() {
+  const [dayAmount, setDayAmount] = useState(1);
+  const [packageAmount, setPackageAmount] = useState(1);
+  const [selected, setSelected] = useState(
+    packageList.find((data) => data.name === "Daily")
+  );
+
+  const onChangeDayAmount = (value) => {
+    let amount = util.number(value);
+    if (value < selected.minDay) amount = selected.minDay;
+    if (value > selected.maxDay) amount = selected.maxDay;
+    setDayAmount(amount);
+  };
+
+  const onChangePackageAmount = (value) => {
+    const amount = util.number(value);
+    if (amount >= 1) setPackageAmount(amount);
+  };
+
+  const onChangeType = (type, name) => {
+    const data = packageList.find(
+      (item) => item.type === type && item.name === name
+    );
+    if (data) {
+      setSelected(data);
+      setDayAmount(data.minDay);
+    }
+  };
+
   return (
     <>
       <NavbarBale bg="bg-yellow" btn="btn-green" title="Catering" />
@@ -160,7 +193,17 @@ function Catering() {
               <Col md={{ span: 10, offset: 1 }}>
                 <Tab.Content className="mt-3">
                   <Tab.Pane eventKey="first">
-                    <SubCal />
+                    <SubCal
+                      packageList={packageList}
+                      selected={selected}
+                      setSelected={setSelected}
+                      dayAmount={dayAmount}
+                      setDayAmount={setDayAmount}
+                      packageAmount={packageAmount}
+                      onChangeDayAmount={onChangeDayAmount}
+                      onChangePackageAmount={onChangePackageAmount}
+                      onChangeType={onChangeType}
+                    />
                   </Tab.Pane>
                   <Tab.Pane eventKey="second">
                     <CustomCal />
