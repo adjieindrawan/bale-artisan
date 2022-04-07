@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Col, Container, Row, Button, Card, Nav, Tab } from "react-bootstrap";
 import NavbarBale from "../../components/NavbarBale";
 import FooterBale from "../../components/FooterBale";
@@ -20,7 +21,9 @@ function Catering() {
       <Container className="text-center py-5">
         <Row>
           <Col lg={{ span: 8, offset: 2 }}>
-            <img src={logoHalf} alt="Bale Artisan" className="logo" />
+            <Link to="/">
+              <img src={logoHalf} alt="" style={{ width: "150px" }} />
+            </Link>
             <img
               src="https://via.placeholder.com/1040x480"
               alt=""
@@ -41,7 +44,7 @@ function Catering() {
             >
               Tanya<b>Bale</b>
             </Button>
-            <h5 className="mt-5 mb-3 fw-light">
+            <h5 className="mt-5 mb-3 fw-bold">
               kamu bisa bebas pilih menu yang kamu suka
             </h5>
 
@@ -93,7 +96,7 @@ function Catering() {
               </Row>
             </Tab.Container>
 
-            <h5 className="fw-bold mt-5">
+            <h5 className="fw-bold mt-5 mb-3">
               Banyak layanan yang sesuai kebutuhan kamu
             </h5>
             <Row>
@@ -135,8 +138,8 @@ function Catering() {
       <Tab.Container defaultActiveKey="first">
         <Container>
           <Row>
-            <Col md={{ span: 4, offset: 4 }}>
-              <h5 className="mt-5 text-center mb-4">
+            <Col md={{ span: 6, offset: 3 }}>
+              <h5 className="mt-5 text-center mb-3 fw-bold">
                 Coba estimasikan pengeluaran Healthy Food kamu
               </h5>
               <Nav className="tab-menu" fill defaultActiveKey="first">

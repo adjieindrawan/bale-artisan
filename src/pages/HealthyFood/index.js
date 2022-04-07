@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Col,
   Container,
@@ -7,7 +8,7 @@ import {
   Card,
   InputGroup,
   FormControl,
-  Form
+  Form,
 } from "react-bootstrap";
 import NavbarBale from "../../components/NavbarBale";
 import FooterBale from "../../components/FooterBale";
@@ -43,7 +44,9 @@ function HealthyFood() {
       <Container className="text-center py-5">
         <Row>
           <Col lg={{ span: 8, offset: 2 }}>
-            <img src={logoHalf} alt="Bale Artisan" className="logo" />
+            <Link to="/">
+              <img src={logoHalf} alt="" style={{ width: "150px" }} />
+            </Link>
             <img
               src="https://via.placeholder.com/1040x480"
               alt=""
@@ -61,7 +64,7 @@ function HealthyFood() {
             <Button className="btn-yellow btn-alt px-5 py-2 mt-4">
               Tanya<b>Bale</b>
             </Button>
-            <h5 className="fw-bold mt-4">
+            <h5 className="fw-bold mt-5 mb-3">
               10 menu sehat yang akan dipilih buat kamu
             </h5>
             <Row className="justify-content-md-center">
