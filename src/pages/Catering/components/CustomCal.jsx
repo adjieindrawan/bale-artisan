@@ -6,7 +6,7 @@ import {
   Button,
   InputGroup,
   FormControl,
-  Form
+  Form,
 } from "react-bootstrap";
 
 // img
@@ -23,11 +23,11 @@ const CustomCal = () => {
   const minimumStandartPrice = 27000;
   const minimumPremiumPrice = 40000;
   const [type, setType] = useState("Standart");
-  const [amount, setAmount] = useState(1);
+  const [amount, setAmount] = useState(null);
   const [selected, setSelected] = useState([]);
   const packageList = customPackageList.map((item, index) => ({
     ...item,
-    key: index
+    key: index,
   }));
 
   const onChangeSelected = (data) => {
@@ -45,22 +45,17 @@ const CustomCal = () => {
     return checked ? true : false;
   };
 
-  const onChangeAmount = (value) => {
-    const amount = util.number(value);
-    if (amount >= 1) setAmount(amount);
-  };
-
   const getTotalPrice = () => {
-    let totalPrice = parseFloat(
-      selected.reduce((a, b) => a + b.price, 0) * amount
+    let totalSelectedAmount = parseFloat(
+      selected.reduce((a, b) => a + b.price, 0)
     );
-    if (type === "Standart" && totalPrice <= minimumStandartPrice) {
-      totalPrice = minimumStandartPrice;
+    if (type === "Standart" && totalSelectedAmount <= minimumStandartPrice) {
+      totalSelectedAmount = minimumStandartPrice;
     }
-    if (type === "Premium" && totalPrice <= minimumPremiumPrice) {
-      totalPrice = minimumPremiumPrice;
+    if (type === "Premium" && totalSelectedAmount <= minimumPremiumPrice) {
+      totalSelectedAmount = minimumPremiumPrice;
     }
-    return totalPrice;
+    return totalSelectedAmount * amount;
   };
 
   return (
@@ -169,21 +164,24 @@ const CustomCal = () => {
                     src={iconMin}
                     alt=""
                     className="pointer"
-                    onClick={() => onChangeAmount(amount - 1)}
+                    onClick={() => setAmount(amount - 1)}
                   />
                   <FormControl
                     placeholder="20 - 100"
                     className="form-cstm m-2"
-                    min={1}
                     value={amount}
-                    onChange={(e) => onChangeAmount(e.target.value)}
+                    onChange={(e) => setAmount(util.number(e.target.value))}
+                    isInvalid={amount !== null && amount < 1}
                   />
                   <img
                     src={iconPlus}
                     alt=""
                     className="pointer"
-                    onClick={() => onChangeAmount(amount + 1)}
+                    onClick={() => setAmount(amount + 1)}
                   />
+                  <Form.Control.Feedback type="invalid">
+                    Min. 1 pesanan, tambahkan jumlah pesanan!
+                  </Form.Control.Feedback>
                 </InputGroup>
               </div>
             </Col>
@@ -195,7 +193,7 @@ const CustomCal = () => {
                 bg="bg-yellow"
                 btn="btn-green"
                 tc="text-primary"
-                disabled={selected.length === 0}
+                disabled={selected.length === 0 || amount < 1}
                 totalPrice={getTotalPrice()}
               />
             </Col>

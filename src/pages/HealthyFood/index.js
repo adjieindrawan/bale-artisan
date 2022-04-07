@@ -6,7 +6,8 @@ import {
   Button,
   Card,
   InputGroup,
-  FormControl
+  FormControl,
+  Form
 } from "react-bootstrap";
 import NavbarBale from "../../components/NavbarBale";
 import FooterBale from "../../components/FooterBale";
@@ -30,23 +31,11 @@ import packageList from "./data/package.data.json";
 import util from "../../helper/util";
 
 function HealthyFood() {
-  const [dayAmount, setDayAmount] = useState(1);
-  const [packageAmount, setPackageAmount] = useState(1);
+  const [dayAmount, setDayAmount] = useState(null);
+  const [packageAmount, setPackageAmount] = useState(null);
   const [selected, setSelected] = useState(
     packageList.find((data) => data.name === "Daily")
   );
-
-  const onChangeDayAmount = (value) => {
-    let amount = util.number(value);
-    if (value < selected.minDay) amount = selected.minDay;
-    if (value > selected.maxDay) amount = selected.maxDay;
-    setDayAmount(amount);
-  };
-
-  const onChangePackageAmount = (value) => {
-    const amount = util.number(value);
-    if (amount >= 1) setPackageAmount(amount);
-  };
 
   return (
     <>
@@ -170,23 +159,33 @@ function HealthyFood() {
                             src={iconMin}
                             alt=""
                             className="pointer"
-                            onClick={() => onChangeDayAmount(dayAmount - 1)}
+                            onClick={() => setDayAmount(dayAmount - 1)}
                           />
                           <FormControl
                             placeholder={`${selected.minDay} - ${selected.maxDay}`}
                             className="form-cstm m-2"
-                            min={selected.minDay}
-                            max={selected.maxDay}
                             value={dayAmount}
-                            onChange={(e) => onChangeDayAmount(e.target.value)}
+                            onChange={(e) =>
+                              setDayAmount(util.number(e.target.value))
+                            }
+                            isInvalid={
+                              dayAmount !== null &&
+                              (dayAmount < selected.minDay ||
+                                dayAmount > selected.maxDay)
+                            }
                           />
                           <span className="txt-form">Hari</span>
                           <img
                             src={iconPlus}
                             alt=""
                             className="pointer"
-                            onClick={() => onChangeDayAmount(dayAmount + 1)}
+                            onClick={() => setDayAmount(dayAmount + 1)}
                           />
+                          <Form.Control.Feedback type="invalid">
+                            {dayAmount > selected.maxDay
+                              ? `Maks. ${selected.maxDay} hari, kurangi jumlah hari!`
+                              : `Min. ${selected.minDay} hari, tambahkan jumlah hari!`}
+                          </Form.Control.Feedback>
                         </InputGroup>
                       </div>
                       <div className="mt-4">
@@ -196,17 +195,17 @@ function HealthyFood() {
                             src={iconMin}
                             alt=""
                             className="pointer"
-                            onClick={() =>
-                              onChangePackageAmount(packageAmount - 1)
-                            }
+                            onClick={() => setPackageAmount(packageAmount - 1)}
                           />
                           <FormControl
                             placeholder="0"
                             className="form-cstm m-2"
-                            min={1}
                             value={packageAmount}
                             onChange={(e) =>
-                              onChangePackageAmount(e.target.value)
+                              setPackageAmount(util.number(e.target.value))
+                            }
+                            isInvalid={
+                              packageAmount !== null && packageAmount < 1
                             }
                           />
                           <span className="txt-form">Paket</span>
@@ -214,10 +213,11 @@ function HealthyFood() {
                             src={iconPlus}
                             alt=""
                             className="pointer"
-                            onClick={() =>
-                              onChangePackageAmount(packageAmount + 1)
-                            }
+                            onClick={() => setPackageAmount(packageAmount + 1)}
                           />
+                          <Form.Control.Feedback type="invalid">
+                            Min. 1 paket, tambahkan jumlah paket!
+                          </Form.Control.Feedback>
                         </InputGroup>
                       </div>
                     </Col>
@@ -225,6 +225,11 @@ function HealthyFood() {
                   <Row className="mt-4">
                     <Col md={{ span: 3, offset: 9 }} className="d-grid">
                       <ModalCal
+                        disabled={
+                          dayAmount < selected.minDay ||
+                          dayAmount > selected.maxDay ||
+                          packageAmount < 1
+                        }
                         variant="secondary"
                         bg="bg-green"
                         btn="btn-yellow"
