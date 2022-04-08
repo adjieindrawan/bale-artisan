@@ -173,6 +173,10 @@ const SubCal = () => {
                 totalPrice={parseFloat(
                   selected.price * dayAmount * packageAmount
                 )}
+                menuType={selected.type}
+                packageName={selected.name}
+                dayAmount={dayAmount}
+                packageAmount={packageAmount}
               />
             </Col>
           </Row>

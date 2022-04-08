@@ -6,7 +6,7 @@ import {
   Button,
   InputGroup,
   FormControl,
-  Form,
+  Form
 } from "react-bootstrap";
 
 // img
@@ -27,7 +27,7 @@ const CustomCal = () => {
   const [selected, setSelected] = useState([]);
   const packageList = customPackageList.map((item, index) => ({
     ...item,
-    key: index,
+    key: index
   }));
 
   const onChangeSelected = (data) => {
@@ -195,6 +195,9 @@ const CustomCal = () => {
                 tc="text-primary"
                 disabled={selected.length === 0 || amount < 1}
                 totalPrice={getTotalPrice()}
+                menuType={type}
+                packageName={selected.name}
+                orderAmount={amount}
               />
             </Col>
           </Row>

@@ -8,7 +8,7 @@ import {
   Card,
   InputGroup,
   FormControl,
-  Form,
+  Form
 } from "react-bootstrap";
 import NavbarBale from "../../components/NavbarBale";
 import FooterBale from "../../components/FooterBale";
@@ -244,6 +244,9 @@ function HealthyFood() {
                         totalPrice={parseFloat(
                           selected.price * dayAmount * packageAmount
                         )}
+                        packageName={selected.name}
+                        dayAmount={dayAmount}
+                        packageAmount={packageAmount}
                       />
                     </Col>
                   </Row>
