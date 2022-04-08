@@ -7,6 +7,7 @@ function ModalCal(props) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  console.log(props);
   return (
     <>
       <Button
@@ -18,7 +19,7 @@ function ModalCal(props) {
         Estimasikan
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} centered>
         <Modal.Header className={props.bg + " text-white"} closeButton>
           <Modal.Title>
             <h5 className="mb-0 fw-bold">Estimasi Harga</h5>
@@ -31,15 +32,15 @@ function ModalCal(props) {
               <span>Premium</span>
             </Col>
             <Col xs={6} className="my-2">
-              <p className="fw-bold mb-1">Jenis Menu</p>
+              <p className="fw-bold mb-1">Paket Langganan</p>
               <span>Premium</span>
             </Col>
             <Col xs={6} className="my-2">
-              <p className="fw-bold mb-1">Jenis Menu</p>
+              <p className="fw-bold mb-1">Jumlah Hari</p>
               <span>Premium</span>
             </Col>
             <Col xs={6} className="my-2">
-              <p className="fw-bold mb-1">Jenis Menu</p>
+              <p className="fw-bold mb-1">Jumlah Paket</p>
               <span>Premium</span>
             </Col>
           </Row>

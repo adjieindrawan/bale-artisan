@@ -27,17 +27,19 @@ function Catering() {
             <img
               src="https://via.placeholder.com/1040x480"
               alt=""
-              className="img-fluid"
+              className="img-fluid rounded"
             />
-            <h2 className="fw-bold mt-4">
-              Bale Artisan bikin menu makan lebih
-              <br />
-              menyenangkan!
-            </h2>
-            <p className="mt-4">
-              Buat kamu yang sedang diet atau suka menu sehat atau yang
-              pensaran, Bale Artisan bisa buat menu sehat tapi tetep nikmat!
-            </p>
+            <Row>
+              <Col md={{ span: 8, offset: 2 }}>
+                <h2 className="fw-bold mt-5">
+                  Bale Artisan bikin menu makan lebih menyenangkan!
+                </h2>
+                <p className="mt-5">
+                  Buat kamu yang pengen menu makannya selalu enak, Bale Artisan
+                  bisa bikin menu makan kamu tidak pernah mengecewakan!
+                </p>
+              </Col>
+            </Row>
             <Button
               variant="secondary"
               className="btn-green btn-alt px-5 py-2 mt-4"

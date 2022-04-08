@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { Button, Col, Modal, Row, Card } from "react-bootstrap";
 
-// images
-import iClose from "../assets/images/bx-x.svg";
-
 // icons
 import { BiX } from "react-icons/bi";
 
@@ -13,7 +10,7 @@ function ModalMenu(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const data = props.data;
-  console.log(data);
+
   return (
     <>
       <Card className="menu-sm h-100 pointer" onClick={handleShow}>
@@ -21,7 +18,7 @@ function ModalMenu(props) {
         <Card.Body className="menu-title">{data.title}</Card.Body>
       </Card>
 
-      <Modal size="lg" show={show} onHide={handleClose}>
+      <Modal size="lg" show={show} onHide={handleClose} centered>
         <Modal.Body>
           <BiX onClick={handleClose} className="i-close" />
           <img src={data.imgLg} alt="" className="rounded img-fluid" />

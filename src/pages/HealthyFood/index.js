@@ -50,17 +50,21 @@ function HealthyFood() {
             <img
               src="https://via.placeholder.com/1040x480"
               alt=""
-              className="img-fluid"
+              className="img-fluid rounded"
             />
-            <h2 className="fw-bold mt-4">
-              Bale Artisan ubah makanan sehat
-              <br />
-              jadi nikmat!
-            </h2>
-            <p className="mt-4">
-              Buat kamu yang sedang diet atau suka menu sehat atau yang
-              pensaran, Bale Artisan bisa buat menu sehat tapi tetep nikmat!
-            </p>
+            <Row>
+              <Col md={{ span: 8, offset: 2 }}>
+                <h2 className="fw-bold mt-5">
+                  Bale Artisan ubah makanan sehat
+                  <br />
+                  jadi nikmat!
+                </h2>
+                <p className="mt-5">
+                  Buat kamu yang sedang diet atau suka menu sehat atau yang
+                  pensaran, Bale Artisan bisa buat menu sehat tapi tetep nikmat!
+                </p>
+              </Col>
+            </Row>
             <Button className="btn-yellow btn-alt px-5 py-2 mt-4">
               Tanya<b>Bale</b>
             </Button>
