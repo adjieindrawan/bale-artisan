@@ -7,7 +7,7 @@ function ModalCal(props) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  console.log(props);
+
   return (
     <>
       <Button
@@ -27,22 +27,36 @@ function ModalCal(props) {
         </Modal.Header>
         <Modal.Body>
           <Row>
-            <Col xs={6} className="my-2">
-              <p className="fw-bold mb-1">Jenis Menu</p>
-              <span>Premium</span>
-            </Col>
-            <Col xs={6} className="my-2">
-              <p className="fw-bold mb-1">Paket Langganan</p>
-              <span>Premium</span>
-            </Col>
-            <Col xs={6} className="my-2">
-              <p className="fw-bold mb-1">Jumlah Hari</p>
-              <span>Premium</span>
-            </Col>
-            <Col xs={6} className="my-2">
-              <p className="fw-bold mb-1">Jumlah Paket</p>
-              <span>Premium</span>
-            </Col>
+            {props.menuType && (
+              <Col xs={6} className="my-2">
+                <p className="fw-bold mb-1">Jenis Menu</p>
+                <span>{props.menuType}</span>
+              </Col>
+            )}
+            {props.packageName && (
+              <Col xs={6} className="my-2">
+                <p className="fw-bold mb-1">Paket Langganan</p>
+                <span>{props.packageName}</span>
+              </Col>
+            )}
+            {props.dayAmount && (
+              <Col xs={6} className="my-2">
+                <p className="fw-bold mb-1">Jumlah Hari</p>
+                <span>{props.dayAmount}</span>
+              </Col>
+            )}
+            {props.packageAmount && (
+              <Col xs={6} className="my-2">
+                <p className="fw-bold mb-1">Jumlah Paket</p>
+                <span>{props.packageAmount}</span>
+              </Col>
+            )}
+            {props.orderAmount && (
+              <Col xs={6} className="my-2">
+                <p className="fw-bold mb-1">Jumlah Pesanan</p>
+                <span>{props.orderAmount}</span>
+              </Col>
+            )}
           </Row>
           <hr />
           <Row>
