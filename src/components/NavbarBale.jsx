@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 function NavbarBale(props) {
   return (
@@ -12,11 +13,21 @@ function NavbarBale(props) {
           <Navbar.Toggle aria-controls="nav-bale" />
           <Navbar.Collapse id="nav-bale">
             <Nav className="m-auto">
-              <Nav.Link href="#home">Intro</Nav.Link>
-              <Nav.Link href="#link">Menu</Nav.Link>
-              <Nav.Link href="#link">Layanan</Nav.Link>
-              <Nav.Link href="#link">Estimasi</Nav.Link>
-              <Nav.Link href="#link">Keunggulan</Nav.Link>
+              <AnchorLink className="nav-link" href="#intro">
+                Intro
+              </AnchorLink>
+              <AnchorLink className="nav-link" href="#menu">
+                Menu
+              </AnchorLink>
+              <AnchorLink className="nav-link" href="#layanan">
+                Layanan
+              </AnchorLink>
+              <AnchorLink className="nav-link" href="#estimasi">
+                Estimasi
+              </AnchorLink>
+              <AnchorLink className="nav-link" href="#keunggulan">
+                Keunggulan
+              </AnchorLink>
             </Nav>
             <Nav className="mr-auto">
               <Button className={props.btn + " btn-alt px-4 py-2"} size="sm">
