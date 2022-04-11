@@ -8,6 +8,14 @@ function ModalCal(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const renderSelectedPackages = (selectedPackages) => {
+    if (selectedPackages.length > 0) {
+      return selectedPackages.map((data) => <div>{data.name}</div>);
+    } else {
+      return "-";
+    }
+  };
+
   return (
     <>
       <Button
@@ -55,6 +63,45 @@ function ModalCal(props) {
               <Col xs={6} className="my-2">
                 <p className="fw-bold mb-1">Jumlah Pesanan</p>
                 <span>{props.orderAmount}</span>
+              </Col>
+            )}
+            {props.selectedPackages && (
+              <Col xs={6} className="my-2">
+                <p className="fw-bold mb-1">Lauk Utama</p>
+                <div>
+                  {props.selectedPackages.length &&
+                    renderSelectedPackages(
+                      props.selectedPackages.filter(
+                        (data) => data.category === "Lauk Utama"
+                      )
+                    )}
+                </div>
+              </Col>
+            )}
+            {props.selectedPackages && (
+              <Col xs={6} className="my-2">
+                <p className="fw-bold mb-1">Lauk Pendamping</p>
+                <div>
+                  {props.selectedPackages.length &&
+                    renderSelectedPackages(
+                      props.selectedPackages.filter(
+                        (data) => data.category === "Lauk Pendamping"
+                      )
+                    )}
+                </div>
+              </Col>
+            )}
+            {props.selectedPackages && (
+              <Col xs={6} className="my-2">
+                <p className="fw-bold mb-1">Lauk Tambahan</p>
+                <div>
+                  {props.selectedPackages.length &&
+                    renderSelectedPackages(
+                      props.selectedPackages.filter(
+                        (data) => data.category === "Tambahan"
+                      )
+                    )}
+                </div>
               </Col>
             )}
           </Row>

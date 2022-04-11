@@ -198,6 +198,7 @@ const CustomCal = () => {
                 menuType={type}
                 packageName={selected.name}
                 orderAmount={amount}
+                selectedPackages={selected}
               />
             </Col>
           </Row>
