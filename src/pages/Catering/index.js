@@ -145,78 +145,84 @@ function Catering() {
         </Row>
       </Container>
 
-      <Tab.Container defaultActiveKey="first">
-        <Container>
-          <Row>
-            <Col md={{ span: 6, offset: 3 }}>
-              <h5 className="mt-5 text-center mb-3 fw-bold">
-                Coba estimasikan pengeluaran Healthy Food kamu
-              </h5>
-              <Nav className="tab-menu" fill defaultActiveKey="first">
-                <Nav.Item>
-                  <Nav.Link eventKey="first" className="text-success">
-                    Berlangganan
-                  </Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="second" className="text-success">
-                    Custom
-                  </Nav.Link>
-                </Nav.Item>
-              </Nav>
-            </Col>
-          </Row>
-        </Container>
-        <section className="bg-yellow py-5 mt-3">
+      <section className="py-5" id="estimasi">
+        <Tab.Container defaultActiveKey="first">
           <Container>
             <Row>
-              <Col md={{ span: 10, offset: 1 }}>
-                <Tab.Content className="mt-3">
-                  <Tab.Pane eventKey="first">
-                    <SubCal />
-                  </Tab.Pane>
-                  <Tab.Pane eventKey="second">
-                    <CustomCal />
-                  </Tab.Pane>
-                </Tab.Content>
+              <Col md={{ span: 6, offset: 3 }}>
+                <h5 className="mt-5 text-center mb-3 fw-bold">
+                  Coba estimasikan pengeluaran Healthy Food kamu
+                </h5>
+                <Nav className="tab-menu" fill defaultActiveKey="first">
+                  <Nav.Item>
+                    <Nav.Link eventKey="first" className="text-success">
+                      Berlangganan
+                    </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="second" className="text-success">
+                      Custom
+                    </Nav.Link>
+                  </Nav.Item>
+                </Nav>
               </Col>
             </Row>
           </Container>
-        </section>
-      </Tab.Container>
-      <Container className="py-5">
-        <Row>
-          <Col md={{ span: 8, offset: 2 }}>
-            <h5 className="fw-bold mt-5 text-center mb-4">
-              Ada beberapa keunggulan yang kamu dapat dari Bale Artisan
-            </h5>
-            <Row className="mt-3 text-start">
-              {_BenefitsY.map((data, i) => (
-                <Col md={4} key={i} className="my-2">
-                  <Card className="h-100">
-                    <Card.Body>
-                      <img src={data.img} alt="" className="ms--2" />
-                      <h5 className="fw-bold fw-bold mt-1">{data.title}</h5>
-                      <p className="mt-3">{data.desc}</p>
-                    </Card.Body>
-                  </Card>
+          <section className="bg-yellow py-5 mt-3">
+            <Container>
+              <Row>
+                <Col md={{ span: 10, offset: 1 }}>
+                  <Tab.Content className="mt-3">
+                    <Tab.Pane eventKey="first">
+                      <SubCal />
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="second">
+                      <CustomCal />
+                    </Tab.Pane>
+                  </Tab.Content>
                 </Col>
-              ))}
-            </Row>
-            <div className="text-center">
+              </Row>
+            </Container>
+          </section>
+        </Tab.Container>
+      </section>
+
+      <section id="keunggulan" className="py-5">
+        <Container>
+          <Row>
+            <Col md={{ span: 8, offset: 2 }}>
               <h5 className="fw-bold mt-5 text-center mb-4">
-                Kamu bisa tanya semuanya pakai TanyaBale!
+                Ada beberapa keunggulan yang kamu dapat dari Bale Artisan
               </h5>
-              <Button
-                variant="secondary"
-                className="btn-green btn-alt px-5 py-2 mt-4"
-              >
-                Tanya<b>Bale</b>
-              </Button>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+              <Row className="mt-3 text-start">
+                {_BenefitsY.map((data, i) => (
+                  <Col md={4} key={i} className="my-2">
+                    <Card className="h-100">
+                      <Card.Body>
+                        <img src={data.img} alt="" className="ms--2" />
+                        <h5 className="fw-bold fw-bold mt-1">{data.title}</h5>
+                        <p className="mt-3">{data.desc}</p>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+              <div className="text-center">
+                <h5 className="fw-bold mt-5 text-center mb-4">
+                  Kamu bisa tanya semuanya pakai TanyaBale!
+                </h5>
+                <Button
+                  variant="secondary"
+                  className="btn-green btn-alt px-5 py-2 mt-4"
+                >
+                  Tanya<b>Bale</b>
+                </Button>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
       <FooterBale />
     </>
   );
