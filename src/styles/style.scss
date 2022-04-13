@@ -239,3 +239,54 @@ footer.bale {
     opacity: 1;
   }
 }
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.3s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: $white;
+  display: block;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color: #7ee1d6;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+button.navbar-toggler.collapsed {
+  display: none;
+}
+
+.open-btn {
+  font-size: 34px;
+  color: $white;
+}

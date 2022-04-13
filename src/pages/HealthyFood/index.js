@@ -41,7 +41,7 @@ function HealthyFood() {
   return (
     <>
       <NavbarBale bg="bg-green" title="Healthy Food" />
-      <Container className="text-center">
+      <Container className="text-center mt-5">
         <Row>
           <Col lg={{ span: 8, offset: 2 }}>
             <section id="intro" className="py-5">
@@ -56,11 +56,9 @@ function HealthyFood() {
               <Row>
                 <Col md={{ span: 8, offset: 2 }}>
                   <h2 className="fw-bold mt-5">
-                    Bale Artisan ubah makanan sehat
-                    <br />
-                    jadi nikmat!
+                    Bale Artisan ubah makanan sehat jadi nikmat!
                   </h2>
-                  <p className="mt-5">
+                  <p className="mt-3">
                     Buat kamu yang sedang diet atau suka menu sehat atau yang
                     pensaran, Bale Artisan bisa buat menu sehat tapi tetep
                     nikmat!
@@ -72,13 +70,13 @@ function HealthyFood() {
               </Button>
             </section>
 
-            <section className="py-5" id="menu">
+            <section className="py-md-5 pt-0" id="menu">
               <h5 className="fw-bold my-4">
                 10 menu sehat yang akan dipilih buat kamu
               </h5>
-              <Row className="justify-content-md-center">
-                {_menuHealthy.slice(0, 5).map((data, i) => (
-                  <Col md={2} className="my-2" key={i}>
+              <Row className="justify-content-center d-md-none">
+                {_menuHealthy.map((data, i) => (
+                  <Col xs={6} className="my-2" key={i}>
                     <ModalMenu
                       data={{ ...data }}
                       variant="secondary"
@@ -87,17 +85,30 @@ function HealthyFood() {
                   </Col>
                 ))}
               </Row>
-              <Row className="justify-content-md-center mt-3">
-                {_menuHealthy.slice(5, 10).map((data, i) => (
-                  <Col md={2} className="my-2" key={i}>
-                    <ModalMenu
-                      data={{ ...data }}
-                      variant="secondary"
-                      btn="btn-green"
-                    />
-                  </Col>
-                ))}
-              </Row>
+              <div className="d-none d-md-block">
+                <Row className="justify-content-center">
+                  {_menuHealthy.slice(0, 5).map((data, i) => (
+                    <Col md={2} xs={6} className="my-2" key={i}>
+                      <ModalMenu
+                        data={{ ...data }}
+                        variant="secondary"
+                        btn="btn-green"
+                      />
+                    </Col>
+                  ))}
+                </Row>
+                <Row className="justify-content-center mt-3">
+                  {_menuHealthy.slice(5, 10).map((data, i) => (
+                    <Col md={2} xs={6} className="my-2" key={i}>
+                      <ModalMenu
+                        data={{ ...data }}
+                        variant="secondary"
+                        btn="btn-green"
+                      />
+                    </Col>
+                  ))}
+                </Row>
+              </div>
             </section>
 
             <section className="py-5" id="layanan">

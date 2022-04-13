@@ -35,7 +35,7 @@ function Catering() {
                   <h2 className="fw-bold mt-5">
                     Bale Artisan bikin menu makan lebih menyenangkan!
                   </h2>
-                  <p className="mt-5">
+                  <p className="mt-3">
                     Buat kamu yang pengen menu makannya selalu enak, Bale
                     Artisan bisa bikin menu makan kamu tidak pernah
                     mengecewakan!

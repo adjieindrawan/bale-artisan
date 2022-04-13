@@ -1,5 +1,13 @@
 // X-Small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) {
+  .overlay a {
+    font-size: 24px;
+  }
+  .overlay .closebtn {
+    top: 25px;
+    right: 25px;
+    color: #fff;
+  }
 }
 
 // Small devices (landscape phones, less than 768px)
@@ -8,8 +16,13 @@
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {
-  h2 {
+  .navbar-text {
     font-size: 24px;
+  }
+
+  .mob-nav {
+    padding: 20px 0;
+    border-radius: 0 0 16px 16px;
   }
 }
 

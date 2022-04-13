@@ -1,15 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
+import { FiMenu, FiX } from "react-icons/fi";
+
 function NavbarBale(props) {
+  const [menuActive, setMenuState] = useState(false);
   return (
     <>
-      <Navbar className={props.bg + " nav fixed-top"} expand="lg">
+      <Navbar className={props.bg + " nav fixed-top mob-nav"} expand="lg">
+        <div
+          id="myNav"
+          className={props.bg + ` overlay ${menuActive ? "w-100" : ""}`}
+        >
+          <FiX className="closebtn" onClick={() => setMenuState(!menuActive)} />
+
+          <div className="overlay-content">
+            <AnchorLink
+              offset={() => 75}
+              onClick={() => setMenuState(!menuActive)}
+              href="#intro"
+            >
+              Intro
+            </AnchorLink>
+            <AnchorLink
+              offset={() => 75}
+              onClick={() => setMenuState(!menuActive)}
+              href="#menu"
+            >
+              Menu
+            </AnchorLink>
+            <AnchorLink
+              offset={() => 75}
+              onClick={() => setMenuState(!menuActive)}
+              href="#layanan"
+            >
+              Layanan
+            </AnchorLink>
+            <AnchorLink
+              offset={() => 75}
+              onClick={() => setMenuState(!menuActive)}
+              href="#estimasi"
+            >
+              Estimasi
+            </AnchorLink>
+            <AnchorLink
+              offset={() => 75}
+              onClick={() => setMenuState(!menuActive)}
+              href="#keunggulan"
+            >
+              Keunggulan
+            </AnchorLink>
+          </div>
+        </div>
         <Container>
           <Navbar.Text className="fw-bold text-white">
             {props.title}
           </Navbar.Text>
+          <FiMenu
+            className="open-btn d-md-none"
+            onClick={() => setMenuState(!menuActive)}
+          />
           <Navbar.Toggle aria-controls="nav-bale" />
           <Navbar.Collapse id="nav-bale">
             <Nav className="m-auto">
