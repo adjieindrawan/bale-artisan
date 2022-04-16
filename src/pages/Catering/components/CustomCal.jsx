@@ -6,7 +6,7 @@ import {
   Button,
   InputGroup,
   FormControl,
-  Form
+  Form,
 } from "react-bootstrap";
 
 // img
@@ -27,7 +27,7 @@ const CustomCal = () => {
   const [selected, setSelected] = useState([]);
   const packageList = customPackageList.map((item, index) => ({
     ...item,
-    key: index
+    key: index,
   }));
 
   const onChangeSelected = (data) => {

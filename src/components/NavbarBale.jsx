@@ -4,6 +4,9 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 
 import { FiMenu, FiX } from "react-icons/fi";
 
+// images
+import logoWhite from "../assets/images/logo-bale-white.png";
+
 function NavbarBale(props) {
   const [menuActive, setMenuState] = useState(false);
   return (
@@ -16,6 +19,7 @@ function NavbarBale(props) {
           <FiX className="closebtn" onClick={() => setMenuState(!menuActive)} />
 
           <div className="overlay-content">
+            <img src={logoWhite} alt="logo" />
             <AnchorLink
               offset={() => 75}
               onClick={() => setMenuState(!menuActive)}
@@ -51,6 +55,10 @@ function NavbarBale(props) {
             >
               Keunggulan
             </AnchorLink>
+
+            <Button size="lg" className={props.btn + " btn-alt px-5 py-2 mt-5"}>
+              Tanya<b>Bale</b>
+            </Button>
           </div>
         </div>
         <Container>

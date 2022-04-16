@@ -254,7 +254,7 @@ footer.bale {
 
 .overlay-content {
   position: relative;
-  top: 25%;
+  top: 10%;
   width: 100%;
   text-align: center;
   margin-top: 30px;
@@ -289,4 +289,21 @@ button.navbar-toggler.collapsed {
 .open-btn {
   font-size: 34px;
   color: $white;
+}
+
+.slick-slide {
+  padding: 0 5px;
+}
+
+.slick-list {
+  margin: 0 2em;
+}
+
+.package-card {
+  min-height: 23rem;
+  text-align: left;
+}
+
+.border-1 {
+  border: 1px solid #e9e9e9;
 }

@@ -7,7 +7,7 @@ import {
   Button,
   InputGroup,
   FormControl,
-  Form
+  Form,
 } from "react-bootstrap";
 
 // img
@@ -43,9 +43,9 @@ const SubCal = () => {
         <Card.Body>
           <img src={iconCal} alt="" className="ms--2" />
           <Row>
-            <Col className="my-3">
+            <Col className="my-3" xs={12} md={"auto"}>
               <h5 className="fw-bold">Jenis Menu</h5>
-              <div className="my-3">
+              <div className="my-3 d-grid">
                 <Button
                   variant="secondary"
                   className="btn-green-outline btn-cal"
@@ -55,7 +55,7 @@ const SubCal = () => {
                   Standart
                 </Button>
               </div>
-              <div className="my-3">
+              <div className="my-3 d-grid" xs={12} md={"auto"}>
                 <Button
                   variant="secondary"
                   className="btn-green-outline btn-cal"
@@ -71,7 +71,7 @@ const SubCal = () => {
               {packageList.map(
                 (data, index) =>
                   selected.type === data.type && (
-                    <div className="my-3" key={index}>
+                    <div className="my-3 d-grid d-md-block" key={index}>
                       <Button
                         variant="secondary"
                         className="btn-green-outline btn-cal"
@@ -83,7 +83,7 @@ const SubCal = () => {
                       >
                         {data.name}
                       </Button>
-                      <span className="ms-3 block-text">
+                      <span className="ms-0 ms-md-3 block-text">
                         Paket {data.name} silahkan pilih {data.minDay} -{" "}
                         {data.maxDay} hari
                       </span>

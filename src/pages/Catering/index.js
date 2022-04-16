@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Col, Container, Row, Button, Card, Nav, Tab } from "react-bootstrap";
+import Slider from "react-slick";
+
 import NavbarBale from "../../components/NavbarBale";
 import FooterBale from "../../components/FooterBale";
 import SubCal from "./components/SubCal";
@@ -14,11 +16,41 @@ import { _menuHealthy } from "../../static/menu";
 import { _BenefitsY, _PackageCatering } from "../../static/package";
 import ModalMenu from "../../components/ModalMenu";
 
+const settings = {
+  dots: false,
+  arrows: false,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  speed: 500,
+  dotsClass: "slick-dots dot-cstm",
+  responsive: [
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        centerMode: true,
+        infinite: false,
+        centerPadding: "20px",
+      },
+    },
+  ],
+};
+
 function Catering() {
   return (
     <>
       <NavbarBale bg="bg-yellow" btn="btn-green" title="Catering" />
-      <Container className="text-center">
+      <Container className="text-center mt-5">
         <Row>
           <Col lg={{ span: 8, offset: 2 }}>
             <section id="intro" className="py-5">
@@ -72,9 +104,9 @@ function Catering() {
                   </Col>
                   <Tab.Content className="mt-3">
                     <Tab.Pane eventKey="first">
-                      <Row className="justify-content-md-center">
+                      <Row className="justify-content-center">
                         {_menuHealthy.slice(0, 5).map((data, i) => (
-                          <Col md={2} className="my-2" key={i}>
+                          <Col xs={6} md={2} className="my-2" key={i}>
                             <ModalMenu
                               data={{ ...data }}
                               variant="secondary"
@@ -85,9 +117,9 @@ function Catering() {
                       </Row>
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
-                      <Row className="justify-content-md-center">
+                      <Row className="justify-content-center">
                         {_menuHealthy.slice(5, 10).map((data, i) => (
-                          <Col md={2} className="my-2" key={i}>
+                          <Col xs={6} md={2} className="my-2" key={i}>
                             <ModalMenu
                               data={{ ...data }}
                               variant="secondary"
@@ -106,7 +138,8 @@ function Catering() {
               <h5 className="fw-bold my-4">
                 Banyak layanan yang sesuai kebutuhan kamu
               </h5>
-              <Row>
+
+              <Row className="d-none d-lg-block">
                 <Col md={{ span: 8, offset: 2 }}>
                   <Row className="mt-3 text-start">
                     {_PackageCatering.map((data, i) => (
@@ -140,6 +173,30 @@ function Catering() {
                   </Row>
                 </Col>
               </Row>
+
+              <Slider {...settings} className="mt-5 d-lg-none">
+                {_PackageCatering.map((data, i) => (
+                  <Card key={i} className="border-1">
+                    <Card.Body className="package-card">
+                      <img src={data.img} alt="" className="ms--2" />
+                      <h5 className="fw-bold fw-bold mt-1">{data.title}</h5>
+                      <p className="mt-3">{data.desc}</p>
+                      <ul className="list-package">
+                        {data.point.map((data, i) => (
+                          <li key={i}>{data}</li>
+                        ))}
+                      </ul>
+                    </Card.Body>
+                    <Card.Footer className="clean mb-3">
+                      <div className="d-grid">
+                        <Button className="btn-yellow btn-alt py-2">
+                          Tanya<b>Bale</b>
+                        </Button>
+                      </div>
+                    </Card.Footer>
+                  </Card>
+                ))}
+              </Slider>
             </section>
           </Col>
         </Row>
@@ -153,7 +210,11 @@ function Catering() {
                 <h5 className="mt-5 text-center mb-3 fw-bold">
                   Coba estimasikan pengeluaran Healthy Food kamu
                 </h5>
-                <Nav className="tab-menu" fill defaultActiveKey="first">
+                <Nav
+                  className="tab-menu mt-4 mt-lg-0"
+                  fill
+                  defaultActiveKey="first"
+                >
                   <Nav.Item>
                     <Nav.Link eventKey="first" className="text-success">
                       Berlangganan
@@ -197,7 +258,7 @@ function Catering() {
               <Row className="mt-3 text-start">
                 {_BenefitsY.map((data, i) => (
                   <Col md={4} key={i} className="my-2">
-                    <Card className="h-100">
+                    <Card className="h-100 border-1 mx-2 mx-md-0">
                       <Card.Body>
                         <img src={data.img} alt="" className="ms--2" />
                         <h5 className="fw-bold fw-bold mt-1">{data.title}</h5>

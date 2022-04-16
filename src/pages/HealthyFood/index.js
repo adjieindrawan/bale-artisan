@@ -10,6 +10,7 @@ import {
   FormControl,
   Form,
 } from "react-bootstrap";
+import Slider from "react-slick";
 import NavbarBale from "../../components/NavbarBale";
 import FooterBale from "../../components/FooterBale";
 
@@ -37,6 +38,43 @@ function HealthyFood() {
   const [selected, setSelected] = useState(
     packageList.find((data) => data.name === "Daily")
   );
+
+  const settings = {
+    dots: false,
+    arrows: false,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    speed: 500,
+    dotsClass: "slick-dots dot-cstm",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+          centerMode: true,
+          infinite: false,
+          centerPadding: "20px",
+        },
+      },
+    ],
+  };
 
   return (
     <>
@@ -115,31 +153,30 @@ function HealthyFood() {
               <h5 className="fw-bold mt-4">
                 Banyak layanan yang sesuai kebutuhan kamu
               </h5>
-              <Row className="mt-4 text-start">
+
+              <Slider {...settings} className="mt-5">
                 {_Package.map((data, i) => (
-                  <Col md={4} key={i} className="my-2">
-                    <Card className="h-100">
-                      <Card.Body>
-                        <img src={iconDate} alt="" className="ms--2" />
-                        <h5 className="fw-bold fw-bold mt-1">{data.title}</h5>
-                        <p className="mt-3">{data.desc}</p>
-                        <ul className="list-package">
-                          {data.point.map((data, i) => (
-                            <li key={i}>{data}</li>
-                          ))}
-                        </ul>
-                      </Card.Body>
-                      <Card.Footer className="clean mb-3">
-                        <div className="d-grid">
-                          <Button className="btn-yellow btn-alt py-2">
-                            Tanya<b>Bale</b>
-                          </Button>
-                        </div>
-                      </Card.Footer>
-                    </Card>
-                  </Col>
+                  <Card key={i} className="border-1">
+                    <Card.Body className="package-card">
+                      <img src={iconDate} alt="" className="ms--2" />
+                      <h5 className="fw-bold fw-bold mt-1">{data.title}</h5>
+                      <p className="mt-3">{data.desc}</p>
+                      <ul className="list-package">
+                        {data.point.map((data, i) => (
+                          <li key={i}>{data}</li>
+                        ))}
+                      </ul>
+                    </Card.Body>
+                    <Card.Footer className="clean mb-3">
+                      <div className="d-grid">
+                        <Button className="btn-yellow btn-alt py-2">
+                          Tanya<b>Bale</b>
+                        </Button>
+                      </div>
+                    </Card.Footer>
+                  </Card>
                 ))}
-              </Row>
+              </Slider>
             </section>
           </Col>
         </Row>
@@ -152,7 +189,7 @@ function HealthyFood() {
           <Container>
             <Row>
               <Col md={{ span: 10, offset: 1 }}>
-                <Card className="p-5">
+                <Card className="p-3 p-lg-5">
                   <Card.Body>
                     <img src={iconCal} alt="" className="ms--2" />
                     <Row>
@@ -160,9 +197,13 @@ function HealthyFood() {
                         <h4 className="fw-bold">Paket Langganan</h4>
                         {packageList.map((data, index) => (
                           <Row className="my-4" key={index}>
-                            <Col className="align-self-center d-grid">
+                            <Col
+                              md={6}
+                              xs={12}
+                              className="align-self-center d-grid"
+                            >
                               <Button
-                                className="btn-yellow-outline px-5 py-2"
+                                className="btn-yellow-outline"
                                 active={selected.name === data.name}
                                 onClick={() => {
                                   setSelected(data);
@@ -172,7 +213,11 @@ function HealthyFood() {
                                 {data.name}
                               </Button>
                             </Col>
-                            <Col className="align-self-center block-text">
+                            <Col
+                              md={6}
+                              xs={12}
+                              className="align-self-center block-text"
+                            >
                               Paket {data.name} silahkan pilih {data.minDay} -{" "}
                               {data.maxDay} hari
                             </Col>
@@ -291,8 +336,8 @@ function HealthyFood() {
               </h5>
               <Row className="mt-3 text-start">
                 {_Benefits.map((data, i) => (
-                  <Col md={4} key={i} className="my-2">
-                    <Card className="h-100">
+                  <Col md={4} key={i} className="my-3">
+                    <Card className="h-100 border-1 mx-2 mx-md-0">
                       <Card.Body>
                         <img src={data.img} alt="" className="ms--2" />
                         <h5 className="fw-bold fw-bold mt-1">{data.title}</h5>
