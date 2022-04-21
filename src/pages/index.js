@@ -30,7 +30,11 @@ function Homepage() {
               <b>Catering</b>
             </p>
             <Row className="mt-5">
-              <Col md={6} className="my-2 parent-cn">
+              <Col
+                lg={6}
+                md={{ span: 10, offset: 1 }}
+                className="my-3 parent-cn"
+              >
                 <Link to="/healthy-food" className="t-decor-0">
                   <Card
                     className="card-nav"
@@ -45,7 +49,11 @@ function Homepage() {
                   </Card>
                 </Link>
               </Col>
-              <Col md={6} className="my-2 parent-cn">
+              <Col
+                lg={6}
+                md={{ span: 10, offset: 1 }}
+                className="my-3 parent-cn"
+              >
                 <Link to="/catering" className="t-decor-0">
                   <Card
                     className="card-nav"

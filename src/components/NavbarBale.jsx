@@ -66,7 +66,7 @@ function NavbarBale(props) {
             {props.title}
           </Navbar.Text>
           <FiMenu
-            className="open-btn d-md-none"
+            className="open-btn d-lg-none"
             onClick={() => setMenuState(!menuActive)}
           />
           <Navbar.Toggle aria-controls="nav-bale" />
@@ -89,7 +89,7 @@ function NavbarBale(props) {
               </AnchorLink>
             </Nav>
             <Nav className="mr-auto">
-              <Button className={props.btn + " btn-alt px-4 py-2"} size="sm">
+              <Button className={props.btn + " btn-alt px-4 py-2"}>
                 Tanya<b>Bale</b>
               </Button>
             </Nav>
