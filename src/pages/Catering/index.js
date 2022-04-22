@@ -17,9 +17,9 @@ import { _BenefitsY, _PackageCatering } from "../../static/package";
 import ModalMenu from "../../components/ModalMenu";
 
 const settings = {
-  dots: false,
+  dots: true,
   arrows: false,
-  slidesToShow: 4,
+  slidesToShow: 1,
   slidesToScroll: 1,
   speed: 500,
   dotsClass: "slick-dots dot-cstm",
@@ -63,7 +63,7 @@ function Catering() {
                 className="img-fluid rounded"
               />
               <Row>
-                <Col md={{ span: 8, offset: 2 }}>
+                <Col md={{ span: 10, offset: 1 }} lg={{ span: 8, offset: 2 }}>
                   <h2 className="fw-bold mt-5">
                     Bale Artisan bikin menu makan lebih menyenangkan!
                   </h2>
@@ -104,9 +104,9 @@ function Catering() {
                   </Col>
                   <Tab.Content className="mt-3">
                     <Tab.Pane eventKey="first">
-                      <Row className="justify-content-center">
+                      <Row className="justify-content-center mt-4">
                         {_menuHealthy.slice(0, 5).map((data, i) => (
-                          <Col xs={6} md={2} className="my-2" key={i}>
+                          <Col xs={6} lg={2} md={4} className="my-2" key={i}>
                             <ModalMenu
                               data={{ ...data }}
                               variant="secondary"
@@ -117,9 +117,9 @@ function Catering() {
                       </Row>
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
-                      <Row className="justify-content-center">
+                      <Row className="justify-content-center mt-4">
                         {_menuHealthy.slice(5, 10).map((data, i) => (
-                          <Col xs={6} md={2} className="my-2" key={i}>
+                          <Col xs={6} lg={2} md={4} className="my-2" key={i}>
                             <ModalMenu
                               data={{ ...data }}
                               variant="secondary"
@@ -174,29 +174,33 @@ function Catering() {
                 </Col>
               </Row>
 
-              <Slider {...settings} className="mt-5 d-lg-none">
-                {_PackageCatering.map((data, i) => (
-                  <Card key={i} className="border-1">
-                    <Card.Body className="package-card">
-                      <img src={data.img} alt="" className="ms--2" />
-                      <h5 className="fw-bold fw-bold mt-1">{data.title}</h5>
-                      <p className="mt-3">{data.desc}</p>
-                      <ul className="list-package">
-                        {data.point.map((data, i) => (
-                          <li key={i}>{data}</li>
-                        ))}
-                      </ul>
-                    </Card.Body>
-                    <Card.Footer className="clean mb-3">
-                      <div className="d-grid">
-                        <Button className="btn-yellow btn-alt py-2">
-                          Tanya<b>Bale</b>
-                        </Button>
-                      </div>
-                    </Card.Footer>
-                  </Card>
-                ))}
-              </Slider>
+              <Row>
+                <Col md={{ span: 10, offset: 1 }}>
+                  <Slider {...settings} className="mt-5 d-lg-none">
+                    {_PackageCatering.map((data, i) => (
+                      <Card key={i} className="border-1">
+                        <Card.Body className="package-card">
+                          <img src={data.img} alt="" className="ms--2" />
+                          <h5 className="fw-bold fw-bold mt-1">{data.title}</h5>
+                          <p className="mt-3">{data.desc}</p>
+                          <ul className="list-package">
+                            {data.point.map((data, i) => (
+                              <li key={i}>{data}</li>
+                            ))}
+                          </ul>
+                        </Card.Body>
+                        <Card.Footer className="clean mb-3">
+                          <div className="d-grid">
+                            <Button className="btn-yellow btn-alt py-2">
+                              Tanya<b>Bale</b>
+                            </Button>
+                          </div>
+                        </Card.Footer>
+                      </Card>
+                    ))}
+                  </Slider>
+                </Col>
+              </Row>
             </section>
           </Col>
         </Row>
@@ -206,7 +210,7 @@ function Catering() {
         <Tab.Container defaultActiveKey="first">
           <Container>
             <Row>
-              <Col md={{ span: 6, offset: 3 }}>
+              <Col lg={{ span: 6, offset: 3 }} md={{ span: 8, offset: 2 }}>
                 <h5 className="mt-5 text-center mb-3 fw-bold">
                   Coba estimasikan pengeluaran Healthy Food kamu
                 </h5>
@@ -232,7 +236,7 @@ function Catering() {
           <section className="bg-yellow py-5 mt-3">
             <Container>
               <Row>
-                <Col md={{ span: 10, offset: 1 }}>
+                <Col lg={{ span: 10, offset: 1 }} md={12}>
                   <Tab.Content className="mt-3">
                     <Tab.Pane eventKey="first">
                       <SubCal />
@@ -251,13 +255,13 @@ function Catering() {
       <section id="keunggulan" className="py-5">
         <Container>
           <Row>
-            <Col md={{ span: 8, offset: 2 }}>
+            <Col lg={{ span: 8, offset: 2 }} md={{ span: 10, offset: 1 }}>
               <h5 className="fw-bold mt-5 text-center mb-4">
                 Ada beberapa keunggulan yang kamu dapat dari Bale Artisan
               </h5>
               <Row className="mt-3 text-start">
                 {_BenefitsY.map((data, i) => (
-                  <Col md={4} key={i} className="my-2">
+                  <Col md={12} lg={4} key={i} className="my-3">
                     <Card className="h-100 border-1 mx-2 mx-md-0">
                       <Card.Body>
                         <img src={data.img} alt="" className="ms--2" />

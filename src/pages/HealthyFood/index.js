@@ -81,7 +81,7 @@ function HealthyFood() {
       <NavbarBale bg="bg-green" title="Healthy Food" />
       <Container className="text-center mt-5">
         <Row>
-          <Col lg={{ span: 8, offset: 2 }}>
+          <Col lg={{ span: 8, offset: 2 }} md={12}>
             <section id="intro" className="py-5">
               <Link to="/">
                 <img src={logoHalf} alt="" style={{ width: "150px" }} />
@@ -92,7 +92,7 @@ function HealthyFood() {
                 className="img-fluid rounded"
               />
               <Row>
-                <Col md={{ span: 8, offset: 2 }}>
+                <Col lg={{ span: 8, offset: 2 }} md={12}>
                   <h2 className="fw-bold mt-5">
                     Bale Artisan ubah makanan sehat jadi nikmat!
                   </h2>
@@ -125,8 +125,8 @@ function HealthyFood() {
               </Row>
               <div className="d-none d-md-block">
                 <Row className="justify-content-center">
-                  {_menuHealthy.slice(0, 5).map((data, i) => (
-                    <Col md={2} xs={6} className="my-2" key={i}>
+                  {_menuHealthy.map((data, i) => (
+                    <Col lg={2} md={3} xs={6} className="my-2" key={i}>
                       <ModalMenu
                         data={{ ...data }}
                         variant="secondary"
@@ -135,7 +135,7 @@ function HealthyFood() {
                     </Col>
                   ))}
                 </Row>
-                <Row className="justify-content-center mt-3">
+                {/* <Row className="justify-content-center mt-3">
                   {_menuHealthy.slice(5, 10).map((data, i) => (
                     <Col md={2} xs={6} className="my-2" key={i}>
                       <ModalMenu
@@ -145,7 +145,7 @@ function HealthyFood() {
                       />
                     </Col>
                   ))}
-                </Row>
+                </Row> */}
               </div>
             </section>
 
@@ -188,12 +188,12 @@ function HealthyFood() {
         <div className="bg-green py-5">
           <Container>
             <Row>
-              <Col md={{ span: 10, offset: 1 }}>
+              <Col md={12} lg={{ span: 10, offset: 1 }}>
                 <Card className="p-3 p-lg-5">
                   <Card.Body>
                     <img src={iconCal} alt="" className="ms--2" />
                     <Row>
-                      <Col md={8} className="my-3">
+                      <Col md={12} lg={8} className="my-3">
                         <h4 className="fw-bold">Paket Langganan</h4>
                         {packageList.map((data, index) => (
                           <Row className="my-4" key={index}>
@@ -224,79 +224,81 @@ function HealthyFood() {
                           </Row>
                         ))}
                       </Col>
-                      <Col md={{ span: 3, offset: 1 }} className="my-3">
-                        <div>
-                          <h4 className="fw-bold">Jumlah Hari</h4>
-                          <InputGroup className="mb-3 ms--2 mt-3">
-                            <img
-                              src={iconMin}
-                              alt=""
-                              className="pointer"
-                              onClick={() => setDayAmount(dayAmount - 1)}
-                            />
-                            <FormControl
-                              placeholder={`${selected.minDay} - ${selected.maxDay}`}
-                              className="form-cstm m-2"
-                              value={dayAmount}
-                              onChange={(e) =>
-                                setDayAmount(util.number(e.target.value))
-                              }
-                              isInvalid={
-                                dayAmount !== null &&
-                                (dayAmount < selected.minDay ||
-                                  dayAmount > selected.maxDay)
-                              }
-                            />
-                            <span className="txt-form">Hari</span>
-                            <img
-                              src={iconPlus}
-                              alt=""
-                              className="pointer"
-                              onClick={() => setDayAmount(dayAmount + 1)}
-                            />
-                            <Form.Control.Feedback type="invalid">
-                              {dayAmount > selected.maxDay
-                                ? `Maks. ${selected.maxDay} hari, kurangi jumlah hari!`
-                                : `Min. ${selected.minDay} hari, tambahkan jumlah hari!`}
-                            </Form.Control.Feedback>
-                          </InputGroup>
-                        </div>
-                        <div className="mt-4">
-                          <h4 className="fw-bold">Jumlah Paket</h4>
-                          <InputGroup className="mb-3 ms--2 mt-3">
-                            <img
-                              src={iconMin}
-                              alt=""
-                              className="pointer"
-                              onClick={() =>
-                                setPackageAmount(packageAmount - 1)
-                              }
-                            />
-                            <FormControl
-                              placeholder="0"
-                              className="form-cstm m-2"
-                              value={packageAmount}
-                              onChange={(e) =>
-                                setPackageAmount(util.number(e.target.value))
-                              }
-                              isInvalid={
-                                packageAmount !== null && packageAmount < 1
-                              }
-                            />
-                            <span className="txt-form">Paket</span>
-                            <img
-                              src={iconPlus}
-                              alt=""
-                              className="pointer"
-                              onClick={() =>
-                                setPackageAmount(packageAmount + 1)
-                              }
-                            />
-                            <Form.Control.Feedback type="invalid">
-                              Min. 1 paket, tambahkan jumlah paket!
-                            </Form.Control.Feedback>
-                          </InputGroup>
-                        </div>
+                      <Col md={12} lg={{ span: 3, offset: 1 }} className="my-3">
+                        <Row>
+                          <Col md={6} lg={12}>
+                            <h4 className="fw-bold">Jumlah Hari</h4>
+                            <InputGroup className="mb-3 ms--2 mt-3">
+                              <img
+                                src={iconMin}
+                                alt=""
+                                className="pointer"
+                                onClick={() => setDayAmount(dayAmount - 1)}
+                              />
+                              <FormControl
+                                placeholder={`${selected.minDay} - ${selected.maxDay}`}
+                                className="form-cstm m-2"
+                                value={dayAmount}
+                                onChange={(e) =>
+                                  setDayAmount(util.number(e.target.value))
+                                }
+                                isInvalid={
+                                  dayAmount !== null &&
+                                  (dayAmount < selected.minDay ||
+                                    dayAmount > selected.maxDay)
+                                }
+                              />
+                              <span className="txt-form">Hari</span>
+                              <img
+                                src={iconPlus}
+                                alt=""
+                                className="pointer"
+                                onClick={() => setDayAmount(dayAmount + 1)}
+                              />
+                              <Form.Control.Feedback type="invalid">
+                                {dayAmount > selected.maxDay
+                                  ? `Maks. ${selected.maxDay} hari, kurangi jumlah hari!`
+                                  : `Min. ${selected.minDay} hari, tambahkan jumlah hari!`}
+                              </Form.Control.Feedback>
+                            </InputGroup>
+                          </Col>
+                          <Col md={6} lg={12} className="mt-lg-4 mt-0">
+                            <h4 className="fw-bold">Jumlah Paket</h4>
+                            <InputGroup className="mb-3 ms--2 mt-3">
+                              <img
+                                src={iconMin}
+                                alt=""
+                                className="pointer"
+                                onClick={() =>
+                                  setPackageAmount(packageAmount - 1)
+                                }
+                              />
+                              <FormControl
+                                placeholder="0"
+                                className="form-cstm m-2"
+                                value={packageAmount}
+                                onChange={(e) =>
+                                  setPackageAmount(util.number(e.target.value))
+                                }
+                                isInvalid={
+                                  packageAmount !== null && packageAmount < 1
+                                }
+                              />
+                              <span className="txt-form">Paket</span>
+                              <img
+                                src={iconPlus}
+                                alt=""
+                                className="pointer"
+                                onClick={() =>
+                                  setPackageAmount(packageAmount + 1)
+                                }
+                              />
+                              <Form.Control.Feedback type="invalid">
+                                Min. 1 paket, tambahkan jumlah paket!
+                              </Form.Control.Feedback>
+                            </InputGroup>
+                          </Col>
+                        </Row>
                       </Col>
                     </Row>
                     <Row className="mt-4">
@@ -330,13 +332,13 @@ function HealthyFood() {
       <section className="py-5" id="keunggulan">
         <Container>
           <Row>
-            <Col md={{ span: 8, offset: 2 }}>
+            <Col lg={{ span: 8, offset: 2 }} md={{ span: 10, offset: 1 }}>
               <h5 className="fw-bold mt-5 text-center mb-4">
                 Ada beberapa keunggulan yang kamu dapat dari Bale Artisan
               </h5>
               <Row className="mt-3 text-start">
                 {_Benefits.map((data, i) => (
-                  <Col md={4} key={i} className="my-3">
+                  <Col md={12} lg={4} key={i} className="my-3">
                     <Card className="h-100 border-1 mx-2 mx-md-0">
                       <Card.Body>
                         <img src={data.img} alt="" className="ms--2" />

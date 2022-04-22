@@ -31,8 +31,8 @@ function Homepage() {
             </p>
             <Row className="mt-5">
               <Col
+                // sm={{ span: 10, offset: 1 }}
                 lg={6}
-                md={{ span: 10, offset: 1 }}
                 className="my-3 parent-cn"
               >
                 <Link to="/healthy-food" className="t-decor-0">
@@ -50,8 +50,8 @@ function Homepage() {
                 </Link>
               </Col>
               <Col
+                // sm={{ span: 10, offset: 1 }}
                 lg={6}
-                md={{ span: 10, offset: 1 }}
                 className="my-3 parent-cn"
               >
                 <Link to="/catering" className="t-decor-0">
