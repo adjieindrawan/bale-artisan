@@ -76,13 +76,17 @@ function HealthyFood() {
     ],
   };
 
+  const title = "Healthy Food";
+  const linkHeadline = `https://api.whatsapp.com/send?phone=6282134595795&text=Hi%20Bale%2C%20katanya%20${title}%20di%20Bale%20rasanya%20nyenengin%20banget%20ya%3F%20Mau%20tanya-tanya%20dong!`;
+  const linkCTA = `https://api.whatsapp.com/send?phone=6282134595795&text=Hi%20Bale%2C%20katanya%20${title}%20di%20Bale%20rasanya%20nyenengin%20banget%20ya%3F%20Mau%20tanya-tanya%20dong!`;
+
   return (
     <>
       <NavbarBale bg="bg-green" title="Healthy Food" />
       <Container className="text-center mt-5">
         <Row>
           <Col lg={{ span: 8, offset: 2 }} md={12}>
-            <section id="intro" className="py-5">
+            <section id="intro" className="pb-5">
               <Link to="/">
                 <img src={logoHalf} alt="" style={{ width: "150px" }} />
               </Link>
@@ -103,12 +107,14 @@ function HealthyFood() {
                   </p>
                 </Col>
               </Row>
-              <Button className="btn-yellow btn-alt px-5 py-2 mt-4">
-                Tanya<b>Bale</b>
-              </Button>
+              <a href={linkHeadline} target="_blank" rel="noreferrer">
+                <Button className="btn-yellow btn-alt px-5 py-2 mt-4">
+                  Tanya<b>Bale</b>
+                </Button>
+              </a>
             </section>
 
-            <section className="py-md-5 pt-0" id="menu">
+            <section className="pb-md-5 pt-0" id="menu">
               <h5 className="fw-bold my-4">
                 10 menu sehat yang akan dipilih buat kamu
               </h5>
@@ -116,6 +122,8 @@ function HealthyFood() {
                 {_menuHealthy.map((data, i) => (
                   <Col xs={6} className="my-2" key={i}>
                     <ModalMenu
+                      type={true}
+                      menu=""
                       data={{ ...data }}
                       variant="secondary"
                       btn="btn-green"
@@ -128,6 +136,8 @@ function HealthyFood() {
                   {_menuHealthy.map((data, i) => (
                     <Col lg={2} md={3} xs={6} className="my-2" key={i}>
                       <ModalMenu
+                        type="healthy"
+                        menu=""
                         data={{ ...data }}
                         variant="secondary"
                         btn="btn-green"
@@ -135,17 +145,6 @@ function HealthyFood() {
                     </Col>
                   ))}
                 </Row>
-                {/* <Row className="justify-content-center mt-3">
-                  {_menuHealthy.slice(5, 10).map((data, i) => (
-                    <Col md={2} xs={6} className="my-2" key={i}>
-                      <ModalMenu
-                        data={{ ...data }}
-                        variant="secondary"
-                        btn="btn-green"
-                      />
-                    </Col>
-                  ))}
-                </Row> */}
               </div>
             </section>
 
@@ -168,11 +167,16 @@ function HealthyFood() {
                       </ul>
                     </Card.Body>
                     <Card.Footer className="clean mb-3">
-                      <div className="d-grid">
+                      <a
+                        href={`https://api.whatsapp.com/send?phone=6282134595795&text=Hi%20Bale%2C%20mau%20tanya%20paket%20berlangganan%20Healthy%20Food%20dengan%20${data.title}%20dong%3F`}
+                        className="d-grid text-decoration-none"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <Button className="btn-yellow btn-alt py-2">
                           Tanya<b>Bale</b>
                         </Button>
-                      </div>
+                      </a>
                     </Card.Footer>
                   </Card>
                 ))}
@@ -218,8 +222,7 @@ function HealthyFood() {
                               xs={12}
                               className="align-self-center block-text"
                             >
-                              Paket {data.name} silahkan pilih {data.minDay} -{" "}
-                              {data.maxDay} hari
+                              Silahkan pilih {data.minDay} - {data.maxDay} hari
                             </Col>
                           </Row>
                         ))}
@@ -313,6 +316,7 @@ function HealthyFood() {
                           bg="bg-green"
                           btn="btn-yellow"
                           tc="text-secondary"
+                          type="Healthy Food"
                           totalPrice={parseFloat(
                             selected.price * dayAmount * packageAmount
                           )}
@@ -353,9 +357,11 @@ function HealthyFood() {
                 <h5 className="fw-bold mt-5 text-center mb-4">
                   Kamu bisa tanya semuanya pakai TanyaBale!
                 </h5>
-                <Button className="btn-yellow btn-alt px-5 py-2 mt-4">
-                  Tanya<b>Bale</b>
-                </Button>
+                <a href={linkCTA} target="_blank" rel="noreferrer">
+                  <Button className="btn-yellow btn-alt px-5 py-2 mt-4">
+                    Tanya<b>Bale</b>
+                  </Button>
+                </a>
               </div>
             </Col>
           </Row>

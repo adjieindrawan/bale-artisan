@@ -84,8 +84,7 @@ const SubCal = () => {
                         {data.name}
                       </Button>
                       <span className="ms-0 ms-md-3 block-text">
-                        Paket {data.name} silahkan pilih {data.minDay} -{" "}
-                        {data.maxDay} hari
+                        Silahkan pilih {data.minDay} - {data.maxDay} hari
                       </span>
                     </div>
                   )
@@ -174,6 +173,7 @@ const SubCal = () => {
                 bg="bg-yellow"
                 btn="btn-green"
                 tc="text-primary"
+                type="Catering"
                 totalPrice={parseFloat(
                   selected.price * dayAmount * packageAmount
                 )}

@@ -117,7 +117,7 @@ function ModalCal(props) {
             </Col>
             <Col md={{ span: 6, offset: 3 }} className=" mt-4">
               <a
-                href="https://api.whatsapp.com/send?phone=6282134595795&text=Hi%20Bale%2C%20mau%20estimasi%20harga%20paket%20untuk%20Catering%20Bale%20dong%3F"
+                href={`https://api.whatsapp.com/send?phone=6282134595795&text=Hi%20Bale%2C%20mau%20estimasi%20harga%20paket%20untuk%20${props.type}%20Bale%20dong%3F`}
                 target="_blank"
                 rel="noreferrer"
                 className="d-grid text-decoration-none"

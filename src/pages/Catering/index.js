@@ -48,8 +48,7 @@ const settings = {
 
 const title = "Catering";
 const linkHeadline = `https://api.whatsapp.com/send?phone=6282134595795&text=Hi%20Bale%2C%20katanya%20${title}%20di%20Bale%20rasanya%20nyenengin%20banget%20ya%3F%20Mau%20tanya-tanya%20dong!`;
-const linkCTA =
-  "https://api.whatsapp.com/send?phone=6282134595795&text=Hi%20Bale%2C%20katanya%20Catering%20di%20Bale%20rasanya%20nyenengin%20banget%20ya%3F%20Mau%20tanya-tanya%20dong!";
+const linkCTA = `https://api.whatsapp.com/send?phone=6282134595795&text=Hi%20Bale%2C%20katanya%20${title}%20di%20Bale%20rasanya%20nyenengin%20banget%20ya%3F%20Mau%20tanya-tanya%20dong!`;
 
 function Catering() {
   return (
@@ -58,7 +57,7 @@ function Catering() {
       <Container className="text-center mt-5">
         <Row>
           <Col lg={{ span: 8, offset: 2 }}>
-            <section id="intro" className="py-5">
+            <section id="intro" className="pb-5">
               <Link to="/">
                 <img src={logoHalf} alt="" style={{ width: "150px" }} />
               </Link>
@@ -89,7 +88,7 @@ function Catering() {
               </a>
             </section>
 
-            <section id="menu" className="py-5">
+            <section id="menu" className="pb-md-5 pt-0">
               <h5 className="my-4 fw-bold">
                 kamu bisa bebas pilih menu yang kamu suka
               </h5>
@@ -115,6 +114,7 @@ function Catering() {
                         {_menuHealthy.slice(0, 5).map((data, i) => (
                           <Col xs={6} lg={2} md={4} className="my-2" key={i}>
                             <ModalMenu
+                              type={false}
                               menu="Standart"
                               data={{ ...data }}
                               variant="secondary"
@@ -129,6 +129,7 @@ function Catering() {
                         {_menuHealthy.slice(5, 10).map((data, i) => (
                           <Col xs={6} lg={2} md={4} className="my-2" key={i}>
                             <ModalMenu
+                              type={false}
                               menu="Premium"
                               data={{ ...data }}
                               variant="secondary"

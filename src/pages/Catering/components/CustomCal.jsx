@@ -193,6 +193,7 @@ const CustomCal = () => {
                 bg="bg-yellow"
                 btn="btn-green"
                 tc="text-primary"
+                type="Catering"
                 disabled={selected.length === 0 || amount < 1}
                 totalPrice={getTotalPrice()}
                 menuType={type}
