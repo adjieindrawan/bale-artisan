@@ -71,9 +71,15 @@ function Homepage() {
             </Row>
 
             <h4 className="mt-5">Kamu bisa tanya semuanya pakai TanyaBale!</h4>
-            <Button className="btn-yellow px-5 py-2 mt-4">
-              Tanya<b>Bale</b>
-            </Button>
+            <a
+              href="https://api.whatsapp.com/send?phone=6282134595795&text=Hi%20Bale%2C%20mau%20tanya%20layanan%20antar%20Bale%20dong!"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Button className="btn-yellow px-5 py-2 mt-4">
+                Tanya<b>Bale</b>
+              </Button>
+            </a>
           </Col>
         </Row>
       </Container>

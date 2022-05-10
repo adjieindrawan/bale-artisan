@@ -115,13 +115,20 @@ function ModalCal(props) {
                 {util.thousandSeparator(props.totalPrice)}
               </h4>
             </Col>
-            <Col md={{ span: 6, offset: 3 }} className="d-grid mt-4">
-              <Button
-                variant={props.variant}
-                className={props.btn + " btn-alt py-2"}
+            <Col md={{ span: 6, offset: 3 }} className=" mt-4">
+              <a
+                href="https://api.whatsapp.com/send?phone=6282134595795&text=Hi%20Bale%2C%20mau%20estimasi%20harga%20paket%20untuk%20Catering%20Bale%20dong%3F"
+                target="_blank"
+                rel="noreferrer"
+                className="d-grid text-decoration-none"
               >
-                Tanya<b>Bale</b>
-              </Button>
+                <Button
+                  variant={props.variant}
+                  className={props.btn + " btn-alt py-2"}
+                >
+                  Tanya<b>Bale</b>
+                </Button>
+              </a>
             </Col>
           </Row>
         </Modal.Body>

@@ -8,6 +8,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import logoWhite from "../assets/images/logo-bale-white.png";
 
 function NavbarBale(props) {
+  const linkNavbar = `https://api.whatsapp.com/send?phone=6282134595795&text=Hi%20Bale%2C%20katanya%20${props.title}%20di%20Bale%20rasanya%20nyenengin%20banget%20ya%3F%20Mau%20tanya-tanya%20dong!`;
   const [menuActive, setMenuState] = useState(false);
   return (
     <>
@@ -55,10 +56,14 @@ function NavbarBale(props) {
             >
               Keunggulan
             </AnchorLink>
-
-            <Button size="lg" className={props.btn + " btn-alt px-5 py-2 mt-5"}>
-              Tanya<b>Bale</b>
-            </Button>
+            <a href={linkNavbar} target="_blank" rel="noreferrer">
+              <Button
+                size="lg"
+                className={props.btn + " btn-alt px-5 py-2 mt-5"}
+              >
+                Tanya<b>Bale</b>
+              </Button>
+            </a>
           </div>
         </div>
         <Container>
@@ -89,9 +94,11 @@ function NavbarBale(props) {
               </AnchorLink>
             </Nav>
             <Nav className="mr-auto">
-              <Button className={props.btn + " btn-alt px-4 py-2"}>
-                Tanya<b>Bale</b>
-              </Button>
+              <a href={linkNavbar} target="_blank" rel="noreferrer">
+                <Button className={props.btn + " btn-alt px-4 py-2"}>
+                  Tanya<b>Bale</b>
+                </Button>
+              </a>
             </Nav>
           </Navbar.Collapse>
         </Container>

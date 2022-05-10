@@ -46,6 +46,11 @@ const settings = {
   ],
 };
 
+const title = "Catering";
+const linkHeadline = `https://api.whatsapp.com/send?phone=6282134595795&text=Hi%20Bale%2C%20katanya%20${title}%20di%20Bale%20rasanya%20nyenengin%20banget%20ya%3F%20Mau%20tanya-tanya%20dong!`;
+const linkCTA =
+  "https://api.whatsapp.com/send?phone=6282134595795&text=Hi%20Bale%2C%20katanya%20Catering%20di%20Bale%20rasanya%20nyenengin%20banget%20ya%3F%20Mau%20tanya-tanya%20dong!";
+
 function Catering() {
   return (
     <>
@@ -74,12 +79,14 @@ function Catering() {
                   </p>
                 </Col>
               </Row>
-              <Button
-                variant="secondary"
-                className="btn-green btn-alt px-5 py-2 mt-4"
-              >
-                Tanya<b>Bale</b>
-              </Button>
+              <a href={linkHeadline} target="_blank" rel="noreferrer">
+                <Button
+                  variant="secondary"
+                  className="btn-green btn-alt px-5 py-2 mt-4"
+                >
+                  Tanya<b>Bale</b>
+                </Button>
+              </a>
             </section>
 
             <section id="menu" className="py-5">
@@ -108,6 +115,7 @@ function Catering() {
                         {_menuHealthy.slice(0, 5).map((data, i) => (
                           <Col xs={6} lg={2} md={4} className="my-2" key={i}>
                             <ModalMenu
+                              menu="Standart"
                               data={{ ...data }}
                               variant="secondary"
                               btn="btn-green"
@@ -121,6 +129,7 @@ function Catering() {
                         {_menuHealthy.slice(5, 10).map((data, i) => (
                           <Col xs={6} lg={2} md={4} className="my-2" key={i}>
                             <ModalMenu
+                              menu="Premium"
                               data={{ ...data }}
                               variant="secondary"
                               btn="btn-green"
@@ -158,14 +167,16 @@ function Catering() {
                             </ul>
                           </Card.Body>
                           <Card.Footer className="clean mb-3">
-                            <div className="d-grid">
-                              <Button
-                                variant="secondary"
-                                className="btn-green btn-alt py-2"
-                              >
+                            <a
+                              href={data.link}
+                              className="d-grid text-decoration-none"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <Button className="btn-yellow btn-alt py-2">
                                 Tanya<b>Bale</b>
                               </Button>
-                            </div>
+                            </a>
                           </Card.Footer>
                         </Card>
                       </Col>
@@ -190,11 +201,16 @@ function Catering() {
                           </ul>
                         </Card.Body>
                         <Card.Footer className="clean mb-3">
-                          <div className="d-grid">
+                          <a
+                            href={data.link}
+                            className="d-grid text-decoration-none"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
                             <Button className="btn-yellow btn-alt py-2">
                               Tanya<b>Bale</b>
                             </Button>
-                          </div>
+                          </a>
                         </Card.Footer>
                       </Card>
                     ))}
@@ -276,12 +292,14 @@ function Catering() {
                 <h5 className="fw-bold mt-5 text-center mb-4">
                   Kamu bisa tanya semuanya pakai TanyaBale!
                 </h5>
-                <Button
-                  variant="secondary"
-                  className="btn-green btn-alt px-5 py-2 mt-4"
-                >
-                  Tanya<b>Bale</b>
-                </Button>
+                <a href={linkCTA} target="_blank" rel="noreferrer">
+                  <Button
+                    variant="secondary"
+                    className="btn-green btn-alt px-5 py-2 mt-4"
+                  >
+                    Tanya<b>Bale</b>
+                  </Button>
+                </a>
               </div>
             </Col>
           </Row>

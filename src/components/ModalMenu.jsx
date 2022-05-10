@@ -11,6 +11,8 @@ function ModalMenu(props) {
   const handleShow = () => setShow(true);
   const data = props.data;
 
+  const menuLink = `https://api.whatsapp.com/send?phone=6282134595795&text=Hi%20Bale%2C%20menu%20*${data.title}*%20jenis%20${props.menu}%20di%20Catering%20Bale%20ini%20rasanya%20bakal%20gimana%20sih%3F`;
+
   return (
     <>
       <Card className="menu-sm h-100 pointer" onClick={handleShow}>
@@ -42,13 +44,20 @@ function ModalMenu(props) {
               <p className="fw-bold mb-1">Kalori</p>
               <span>{data.cal}</span>
             </Col>
-            <Col md={{ span: 6, offset: 3 }} className="d-grid my-3">
-              <Button
-                variant={props.variant}
-                className={props.btn + " btn-alt py-2"}
+            <Col md={{ span: 6, offset: 3 }} className="my-3">
+              <a
+                href={menuLink}
+                target="_blank"
+                rel="noreferrer"
+                className="d-grid text-decoration-none"
               >
-                Tanya<b>Bale</b>
-              </Button>
+                <Button
+                  variant={props.variant}
+                  className={props.btn + " btn-alt py-2"}
+                >
+                  Tanya<b>Bale</b>
+                </Button>
+              </a>
             </Col>
           </Row>
         </Modal.Body>
